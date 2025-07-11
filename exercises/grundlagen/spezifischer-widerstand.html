@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spezifischer Widerstand - SIU-EM-Wizard</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/exercise.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="exercise-header">
+        <nav class="exercise-nav">
+            <div class="nav-left">
+                <a href="../../index.html" class="btn btn-secondary">← Zurück zur Übersicht</a>
+            </div>
+            <div class="nav-center">
+                <h1>Spezifischer Widerstand</h1>
+            </div>
+            <div class="nav-right">
+                <div class="difficulty-selector">
+                    <select id="difficulty" onchange="changeDifficulty()">
+                        <option value="easy">Einfach</option>
+                        <option value="medium" selected>Mittel</option>
+                        <option value="hard">Schwer</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="exercise-container">
+        <!-- Progress Bar -->
+        <div class="exercise-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+            <span class="progress-text">Aufgabe <span id="currentQuestion">1</span> von <span id="totalQuestions">10</span></span>
+        </div>
+
+        <!-- Theory Section (Collapsible) -->
+        <section class="theory-section" id="theorySection">
+            <div class="theory-header" onclick="toggleTheory()">
+                <h2>📚 Theorie: Spezifischer Widerstand</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="theory-content" id="theoryContent">
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3>Grundformel</h3>
+                        <p>$$R = \rho \cdot \frac{l}{A}$$</p>
+                        <ul>
+                            <li>$\rho$ = spez. Widerstand [Ω·mm²/m]</li>
+                            <li>$l$ = Länge [m]</li>
+                            <li>$A$ = Querschnitt [mm²]</li>
+                        </ul>
+                    </div>
+                    <div class="theory-card">
+                        <h3>⚠️ WICHTIG: Leiter vs. Leitung</h3>
+                        <div style="background: #fff3cd; padding: 10px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                            <p><strong>Leiter:</strong> $R = \rho \cdot \frac{l}{A}$</p>
+                            <p><strong>Leitung:</strong> $R = 2 \cdot \rho \cdot \frac{l}{A}$</p>
+                            <p><small>Bei Leitung: Strom fließt hin UND zurück!</small></p>
+                        </div>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Typische Werte ρ [Ω·mm²/m]</h3>
+                        <ul>
+                            <li><strong>Kupfer:</strong> 0.0175</li>
+                            <li><strong>Aluminium:</strong> 0.03</li>
+                            <li><strong>Eisen:</strong> 0.10</li>
+                            <li><strong>Silber:</strong> 0.017</li>
+                        </ul>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Umstellungen</h3>
+                        <p>Länge: $$l = \frac{R \cdot A}{\rho}$$</p>
+                        <p>Querschnitt: $$A = \frac{\rho \cdot l}{R}$$</p>
+                        <p><small>(Bei Leitung: Faktor 2 beachten!)</small></p>
+                    </div>
+                </div>
+                <div class="theory-tips">
+                    <h4>💡 Wichtige Tipps:</h4>
+                    <ul>
+                        <li><strong>Leiter vs. Leitung:</strong> Aufgabentext genau lesen!</li>
+                        <li><strong>Einheiten:</strong> Länge in [m], Querschnitt in [mm²]</li>
+                        <li><strong>Querschnitt berechnen:</strong> $A = \frac{\pi \cdot d^2}{4}$ oder $A = \pi \cdot r^2$</li>
+                        <li><strong>Bei Leitung:</strong> Immer Faktor 2 wegen Hin- und Rückleiter</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise Section -->
+        <section class="exercise-section">
+            <div class="exercise-card" id="exerciseCard">
+                <div class="exercise-question">
+                    <h3 id="questionText">Berechnen Sie den gesuchten Wert:</h3>
+                    <div class="math-expression" id="mathExpression">
+                        <p>Ein Kupferleiter (ρ = 0.0175 Ω·mm²/m) mit einer Länge von 100 m und einem Querschnitt von 2.5 mm² hat welchen Widerstand?</p>
+                    </div>
+                </div>
+
+                <div class="exercise-input">
+                    <label for="answer" id="answerLabel">Widerstand R = </label>
+                    <input type="number" id="answer" step="any" placeholder="Antwort eingeben..." onkeypress="handleEnterKey(event)">
+                    <span id="unitLabel" class="unit-label">Ω</span>
+                    <div class="input-buttons">
+                        <button class="btn btn-primary" onclick="checkAnswer()">Prüfen</button>
+                        <button class="btn btn-secondary" onclick="showHint()" id="hintBtn">💡 Hinweis</button>
+                        <button class="btn btn-secondary" onclick="showSteps()" id="stepsBtn">📖 Schritte</button>
+                    </div>
+                </div>
+
+                <div class="feedback" id="feedback"></div>
+                <div class="hint" id="hint"></div>
+                <div class="solution" id="solution"></div>
+                <div class="steps" id="steps"></div>
+            </div>
+
+            <div class="exercise-controls">
+                <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" disabled>← Vorherige</button>
+                <button class="btn btn-primary" onclick="generateNewQuestion()">Neue Aufgabe</button>
+                <button class="btn btn-secondary" onclick="nextQuestion()" id="nextBtn">Nächste →</button>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Richtige Antworten</h4>
+                    <span class="stat-number" id="correctAnswers">0</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Gesamte Aufgaben</h4>
+                    <span class="stat-number" id="totalAnswers">0</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Erfolgsquote</h4>
+                    <span class="stat-number" id="successRate">0%</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Schwierigkeitsgrad</h4>
+                    <span class="stat-number" id="currentDifficulty">Mittel</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Exercise Logic for Spezifischer Widerstand
+        class SpezifischerWiderstandExercise {
+            constructor() {
+                this.currentQuestion = 1;
+                this.totalQuestions = 10;
+                this.correctAnswers = 0;
+                this.totalAnswers = 0;
+                this.difficulty = 'medium';
+                this.currentExercise = null;
+                this.answered = false;
+                
+                // Material properties
+                this.materials = {
+                    'Kupfer': 0.0175,
+                    'Aluminium': 0.03,
+                    'Eisen': 0.10,
+                    'Silber': 0.017
+                };
+                
+                this.generateNewQuestion();
+                this.updateStats();
+            }
+
+            generateNewQuestion() {
+                this.answered = false;
+                this.currentExercise = this.createResistanceExercise(this.difficulty);
+                this.displayQuestion();
+                this.clearFeedback();
+                this.updateInputLabel();
+                document.getElementById('answer').value = '';
+                document.getElementById('answer').focus();
+            }
+
+            createResistanceExercise(difficulty) {
+                const materialNames = Object.keys(this.materials);
+                const material = materialNames[Math.floor(Math.random() * materialNames.length)];
+                const rho = this.materials[material];
+                
+                // Determine if it's a conductor or a line (cable)
+                const isLine = Math.random() < 0.5; // 50% chance for line
+                const typeText = isLine ? 'Leitung' : 'Leiter';
+                const factor = isLine ? 2 : 1;
+                
+                let length, area, diameter, answer, question, hint, solution, steps, unit, seekType;
+                
+                // What to calculate
+                const calcTypes = ['resistance', 'length', 'area'];
+                seekType = calcTypes[Math.floor(Math.random() * calcTypes.length)];
+                
+                switch (difficulty) {
+                    case 'easy':
+                        length = [10, 20, 50, 100][Math.floor(Math.random() * 4)];
+                        area = [1, 1.5, 2.5, 4][Math.floor(Math.random() * 4)];
+                        break;
+                    case 'medium':
+                        length = Math.floor(Math.random() * 200) + 50; // 50-250m
+                        area = (Math.floor(Math.random() * 60) + 10) / 10; // 1.0-7.0 mm²
+                        break;
+                    case 'hard':
+                        length = Math.floor(Math.random() * 500) + 100; // 100-600m
+                        diameter = (Math.floor(Math.random() * 80) + 20) / 10; // 2.0-10.0 mm
+                        area = Math.PI * Math.pow(diameter/2, 2); // Calculate from diameter
+                        break;
+                }
+
+                switch (seekType) {
+                    case 'resistance':
+                        answer = parseFloat((factor * rho * length / area).toFixed(4));
+                        unit = 'Ω';
+                        
+                        if (difficulty === 'hard' && diameter) {
+                            question = `Ein ${material}${typeText.toLowerCase()} (ρ = ${rho} Ω·mm²/m) mit einer Länge von ${length} m und einem Durchmesser von ${diameter} mm hat welchen Widerstand?`;
+                            hint = `Berechne zuerst den Querschnitt: A = π·d²/4. ${isLine ? 'ACHTUNG: Leitung → Faktor 2!' : ''}`;
+                            steps = [
+                                `Gegeben: Material = ${material}, ρ = ${rho} Ω·mm²/m`,
+                                `l = ${length} m, d = ${diameter} mm`,
+                                `${typeText} → ${isLine ? 'Faktor 2 beachten!' : 'Normaler Leiter'}`,
+                                `A = π \\cdot d²/4 = π \\cdot ${diameter}²/4 = ${area.toFixed(2)} mm²`,
+                                `R = ${factor === 2 ? '2 \\cdot ' : ''}ρ \\cdot l/A = ${factor === 2 ? '2 \\cdot ' : ''}${rho} \\cdot ${length}/${area.toFixed(2)}`,
+                                `R = ${answer} Ω`
+                            ];
+                        } else {
+                            question = `Ein ${material}${typeText.toLowerCase()} (ρ = ${rho} Ω·mm²/m) mit einer Länge von ${length} m und einem Querschnitt von ${area} mm² hat welchen Widerstand?`;
+                            hint = `Verwende R = ${isLine ? '2 · ' : ''}ρ · l/A. ${isLine ? 'ACHTUNG: Leitung → Faktor 2!' : ''}`;
+                            steps = [
+                                `Gegeben: Material = ${material}, ρ = ${rho} Ω·mm²/m`,
+                                `l = ${length} m, A = ${area} mm²`,
+                                `${typeText} → ${isLine ? 'Faktor 2 beachten!' : 'Normaler Leiter'}`,
+                                `R = ${factor === 2 ? '2 \\cdot ' : ''}ρ \\cdot l/A = ${factor === 2 ? '2 \\cdot ' : ''}${rho} \\cdot ${length}/${area}`,
+                                `R = ${answer} Ω`
+                            ];
+                        }
+                        
+                        solution = `R = ${factor === 2 ? '2 \\cdot ' : ''}${rho} \\cdot ${length}/${area.toFixed(2)} = ${answer} Ω`;
+                        break;
+                        
+                    case 'length':
+                        const targetR = parseFloat((Math.random() * 2 + 0.5).toFixed(2)); // 0.5-2.5 Ω
+                        answer = parseFloat((targetR * area / (factor * rho)).toFixed(1));
+                        unit = 'm';
+                        
+                        question = `Ein ${material}${typeText.toLowerCase()} (ρ = ${rho} Ω·mm²/m) mit einem Querschnitt von ${area} mm² soll einen Widerstand von ${targetR} Ω haben. Wie lang muss ${isLine ? 'die Leitung' : 'der Leiter'} sein?`;
+                        hint = `Stelle die Formel nach l um: l = R·A/(${isLine ? '2·' : ''}ρ). ${isLine ? 'ACHTUNG: Leitung → Faktor 2!' : ''}`;
+                        solution = `l = R \\cdot A / (${factor === 2 ? '2 \\cdot ' : ''}ρ) = ${targetR} \\cdot ${area} / (${factor === 2 ? '2 \\cdot ' : ''}${rho}) = ${answer} m`;
+                        steps = [
+                            `Gegeben: Material = ${material}, ρ = ${rho} Ω·mm²/m`,
+                            `A = ${area} mm², R = ${targetR} Ω`,
+                            `${typeText} → ${isLine ? 'Faktor 2 beachten!' : 'Normaler Leiter'}`,
+                            `Umstellen: l = R \\cdot A / (${factor === 2 ? '2 \\cdot ' : ''}ρ)`,
+                            `l = ${targetR} \\cdot ${area} / (${factor === 2 ? '2 \\cdot ' : ''}${rho}) = ${answer} m`
+                        ];
+                        break;
+                        
+                    case 'area':
+                        const targetR2 = parseFloat((Math.random() * 1.5 + 0.2).toFixed(2)); // 0.2-1.7 Ω
+                        answer = parseFloat((factor * rho * length / targetR2).toFixed(2));
+                        unit = 'mm²';
+                        
+                        question = `Ein ${material}${typeText.toLowerCase()} (ρ = ${rho} Ω·mm²/m) mit einer Länge von ${length} m soll einen Widerstand von ${targetR2} Ω haben. Welchen Querschnitt muss ${isLine ? 'die Leitung' : 'der Leiter'} haben?`;
+                        hint = `Stelle die Formel nach A um: A = ${isLine ? '2·' : ''}ρ·l/R. ${isLine ? 'ACHTUNG: Leitung → Faktor 2!' : ''}`;
+                        solution = `A = ${factor === 2 ? '2 \\cdot ' : ''}ρ \\cdot l / R = ${factor === 2 ? '2 \\cdot ' : ''}${rho} \\cdot ${length} / ${targetR2} = ${answer} mm²`;
+                        steps = [
+                            `Gegeben: Material = ${material}, ρ = ${rho} Ω·mm²/m`,
+                            `l = ${length} m, R = ${targetR2} Ω`,
+                            `${typeText} → ${isLine ? 'Faktor 2 beachten!' : 'Normaler Leiter'}`,
+                            `Umstellen: A = ${factor === 2 ? '2 \\cdot ' : ''}ρ \\cdot l / R`,
+                            `A = ${factor === 2 ? '2 \\cdot ' : ''}${rho} \\cdot ${length} / ${targetR2} = ${answer} mm²`
+                        ];
+                        break;
+                }
+
+                return { question, answer, hint, solution, steps, unit, seekType, isLine };
+            }
+
+            displayQuestion() {
+                document.getElementById('mathExpression').innerHTML = `<p>${this.currentExercise.question}</p>`;
+            }
+
+            updateInputLabel() {
+                const unit = this.currentExercise.unit;
+                const seekType = this.currentExercise.seekType;
+                document.getElementById('unitLabel').textContent = unit;
+                
+                let label = '';
+                switch(seekType) {
+                    case 'resistance':
+                        label = 'Widerstand R = ';
+                        break;
+                    case 'length':
+                        label = 'Länge l = ';
+                        break;
+                    case 'area':
+                        label = 'Querschnitt A = ';
+                        break;
+                }
+                document.getElementById('answerLabel').textContent = label;
+            }
+
+            checkAnswer() {
+                if (this.answered) return;
+
+                const userAnswer = parseFloat(document.getElementById('answer').value);
+                const feedback = document.getElementById('feedback');
+                
+                if (isNaN(userAnswer)) {
+                    feedback.innerHTML = '<div class="feedback-error">⚠️ Bitte geben Sie eine gültige Zahl ein.</div>';
+                    return;
+                }
+
+                this.answered = true;
+                this.totalAnswers++;
+
+                const tolerance = Math.abs(this.currentExercise.answer) * 0.02 + 0.001; // 2% + small absolute tolerance
+                
+                if (Math.abs(userAnswer - this.currentExercise.answer) <= tolerance) {
+                    this.correctAnswers++;
+                    let extraText = '';
+                    if (this.currentExercise.isLine) {
+                        extraText = '<br><small>✅ Faktor 2 für Leitung richtig beachtet!</small>';
+                    }
+                    feedback.innerHTML = `
+                        <div class="feedback-success">
+                            ✅ Richtig! Die Antwort ist ${this.currentExercise.answer} ${this.currentExercise.unit}.${extraText}
+                        </div>
+                    `;
+                    
+                    // Auto-advance after correct answer
+                    setTimeout(() => {
+                        this.nextQuestion();
+                    }, 3000);
+                } else {
+                    let hintText = '';
+                    if (this.currentExercise.isLine && Math.abs(userAnswer - this.currentExercise.answer/2) < tolerance) {
+                        hintText = '<br><small>💡 Haben Sie den Faktor 2 für die Leitung vergessen?</small>';
+                    } else if (!this.currentExercise.isLine && Math.abs(userAnswer - this.currentExercise.answer*2) < tolerance) {
+                        hintText = '<br><small>⚠️ Kein Faktor 2 nötig - es ist ein Leiter, keine Leitung!</small>';
+                    }
+                    
+                    feedback.innerHTML = `
+                        <div class="feedback-error">
+                            ❌ Falsch. Ihre Antwort: ${userAnswer} ${this.currentExercise.unit}<br>
+                            Richtige Antwort: ${this.currentExercise.answer} ${this.currentExercise.unit}${hintText}
+                        </div>
+                    `;
+                    this.showSolution();
+                }
+
+                this.updateStats();
+                this.updateProgress();
+            }
+
+            showHint() {
+                const hint = document.getElementById('hint');
+                hint.innerHTML = `<div class="hint-content">💡 ${this.currentExercise.hint}</div>`;
+            }
+
+            showSolution() {
+                const solution = document.getElementById('solution');
+                solution.innerHTML = `
+                    <div class="solution-content">
+                        <h4>📖 Lösung:</h4>
+                        <p>$$${this.currentExercise.solution}$$</p>
+                    </div>
+                `;
+                if (window.MathJax) {
+                    MathJax.typesetPromise();
+                }
+            }
+
+            showSteps() {
+                const stepsDiv = document.getElementById('steps');
+                if (this.currentExercise.steps) {
+                    let stepsHtml = '<div class="solution-steps"><h4>📝 Lösungsschritte:</h4>';
+                    this.currentExercise.steps.forEach((step, index) => {
+                        stepsHtml += `
+                            <div class="solution-step">
+                                <div class="step-number">${index + 1}</div>
+                                <div class="step-content">${step}</div>
+                            </div>
+                        `;
+                    });
+                    stepsHtml += '</div>';
+                    stepsDiv.innerHTML = stepsHtml;
+                    
+                    if (window.MathJax) {
+                        MathJax.typesetPromise();
+                    }
+                }
+            }
+
+            nextQuestion() {
+                if (this.currentQuestion < this.totalQuestions) {
+                    this.currentQuestion++;
+                } else {
+                    this.currentQuestion = 1;
+                }
+                this.generateNewQuestion();
+                this.updateProgress();
+            }
+
+            previousQuestion() {
+                if (this.currentQuestion > 1) {
+                    this.currentQuestion--;
+                    this.generateNewQuestion();
+                    this.updateProgress();
+                }
+            }
+
+            updateProgress() {
+                const progress = (this.currentQuestion / this.totalQuestions) * 100;
+                document.getElementById('progressBar').style.width = `${progress}%`;
+                document.getElementById('currentQuestion').textContent = this.currentQuestion;
+                document.getElementById('totalQuestions').textContent = this.totalQuestions;
+                
+                // Update button states
+                document.getElementById('prevBtn').disabled = this.currentQuestion === 1;
+            }
+
+            updateStats() {
+                document.getElementById('correctAnswers').textContent = this.correctAnswers;
+                document.getElementById('totalAnswers').textContent = this.totalAnswers;
+                const successRate = this.totalAnswers > 0 ? Math.round((this.correctAnswers / this.totalAnswers) * 100) : 0;
+                document.getElementById('successRate').textContent = `${successRate}%`;
+                document.getElementById('currentDifficulty').textContent = this.getDifficultyText();
+            }
+
+            getDifficultyText() {
+                const difficultyMap = {
+                    'easy': 'Einfach',
+                    'medium': 'Mittel',
+                    'hard': 'Schwer'
+                };
+                return difficultyMap[this.difficulty] || 'Mittel';
+            }
+
+            changeDifficulty(newDifficulty) {
+                this.difficulty = newDifficulty;
+                this.generateNewQuestion();
+                this.updateStats();
+            }
+
+            clearFeedback() {
+                document.getElementById('feedback').innerHTML = '';
+                document.getElementById('hint').innerHTML = '';
+                document.getElementById('solution').innerHTML = '';
+                document.getElementById('steps').innerHTML = '';
+            }
+        }
+
+        // Global functions
+        let exercise;
+
+        function initializeExercise() {
+            exercise = new SpezifischerWiderstandExercise();
+        }
+
+        function checkAnswer() {
+            exercise.checkAnswer();
+        }
+
+        function showHint() {
+            exercise.showHint();
+        }
+
+        function showSteps() {
+            exercise.showSteps();
+        }
+
+        function generateNewQuestion() {
+            exercise.generateNewQuestion();
+        }
+
+        function nextQuestion() {
+            exercise.nextQuestion();
+        }
+
+        function previousQuestion() {
+            exercise.previousQuestion();
+        }
+
+        function changeDifficulty() {
+            const difficulty = document.getElementById('difficulty').value;
+            exercise.changeDifficulty(difficulty);
+        }
+
+        function handleEnterKey(event) {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        }
+
+        function toggleTheory() {
+            const content = document.getElementById('theoryContent');
+            const icon = document.querySelector('.toggle-icon');
+            
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+                icon.textContent = '▲';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '▼';
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeExercise();
+            
+            // Track progress
+            if (window.parent && window.parent.emWizard) {
+                window.parent.emWizard.progressTracker.updateLastTopic(window.location.href);
+            }
+        });
+
+        // Track exercise completion
+        window.addEventListener('beforeunload', function() {
+            if (exercise && exercise.correctAnswers > 0) {
+                if (window.parent && window.parent.emWizard) {
+                    window.parent.emWizard.progressTracker.markExerciseCompleted('grundlagen', 'spezifischer-widerstand');
+                }
+            }
+        });
+    </script>
+
+    <style>
+        .unit-label {
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: 600;
+            color: var(--siu-red);
+            font-size: var(--font-size-large);
+        }
+    </style>
+</body>
+</html>

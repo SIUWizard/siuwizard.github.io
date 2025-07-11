@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brüche - SIU-EM-Wizard</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/exercise.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="exercise-header">
+        <nav class="exercise-nav">
+            <div class="nav-left">
+                <a href="../../index.html" class="btn btn-secondary">← Zurück zur Übersicht</a>
+            </div>
+            <div class="nav-center">
+                <h1>Bruchrechnung</h1>
+            </div>
+        </nav>
+    </header>
+
+    <div class="exercise-layout">
+        <!-- Main Content Area -->
+        <main class="exercise-main">
+            <!-- Theory Section (Collapsible) -->
+            <section class="theory-section" id="theorySection">
+                <div class="theory-header" onclick="toggleTheory()">
+                    <h2>📚 Theorie: Bruchrechnung</h2>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="theory-content" id="theoryContent">
+                    <div class="theory-grid">
+                        <div class="theory-card">
+                            <h3>Bruch-Aufbau</h3>
+                            <p>Ein Bruch besteht aus:</p>
+                            <p>$$\frac{\text{Zähler}}{\text{Nenner}} = \frac{a}{b}$$</p>
+                            <p><strong>Beispiel:</strong> $\frac{3}{4}$ bedeutet "3 von 4 Teilen"</p>
+                        </div>
+                        <div class="theory-card">
+                            <h3>Addition/Subtraktion</h3>
+                            <p>Bei gleichen Nennern:</p>
+                            <p>$$\frac{a}{c} \pm \frac{b}{c} = \frac{a \pm b}{c}$$</p>
+                            <p>Bei verschiedenen Nennern: Erweitern auf gemeinsamen Nenner</p>
+                            <p><strong>Beispiel:</strong> $\frac{1}{2} + \frac{1}{3} = \frac{3}{6} + \frac{2}{6} = \frac{5}{6}$</p>
+                        </div>
+                        <div class="theory-card">
+                            <h3>Multiplikation</h3>
+                            <p>Zähler mal Zähler, Nenner mal Nenner:</p>
+                            <p>$$\frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b \times d}$$</p>
+                            <p><strong>Beispiel:</strong> $\frac{2}{3} \times \frac{4}{5} = \frac{8}{15}$</p>
+                        </div>
+                        <div class="theory-card">
+                            <h3>Division</h3>
+                            <p>Multipliziere mit dem Kehrwert:</p>
+                            <p>$$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c} = \frac{a \times d}{b \times c}$$</p>
+                            <p><strong>Beispiel:</strong> $\frac{2}{3} \div \frac{4}{5} = \frac{2}{3} \times \frac{5}{4} = \frac{10}{12} = \frac{5}{6}$</p>
+                        </div>
+                    </div>
+                    <div class="theory-tips">
+                        <h4>💡 Wichtige Regeln:</h4>
+                        <ul>
+                            <li><strong>Kürzen:</strong> Zähler und Nenner durch die gleiche Zahl teilen</li>
+                            <li><strong>Erweitern:</strong> Zähler und Nenner mit der gleichen Zahl multiplizieren</li>
+                            <li><strong>Gemeinsamer Nenner:</strong> Kleinstes gemeinsames Vielfaches (kgV)</li>
+                            <li><strong>Gemischte Zahlen:</strong> In unechte Brüche umwandeln</li>
+                            <li><strong>Kehrwert:</strong> Zähler und Nenner vertauschen</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exercise Content Area -->
+            <div class="exercise-content">
+                <!-- Exercise content will be dynamically inserted here -->
+                <div class="exercise-question">
+                    <h3>Aufgabe wird geladen...</h3>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar will be dynamically created -->
+    </div>
+
+    <!-- Exercise System Script -->
+    <script src="../../js/exercise-system.js"></script>
+    
+    <script>
+        // Define exercises for Bruchrechnung
+        const bruchrechnungExercises = [
+            // EINFACHE AUFGABEN
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $\\frac{1}{4} + \\frac{1}{4} = ?$',
+                answer: '1/2',
+                unit: '',
+                tolerance: 0,
+                solution: 'Bei gleichen Nennern werden die Zähler addiert: $\\frac{1}{4} + \\frac{1}{4} = \\frac{1+1}{4} = \\frac{2}{4} = \\frac{1}{2}$',
+                explanation: 'Addition von Brüchen mit gleichem Nenner.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $\\frac{3}{5} - \\frac{1}{5} = ?$',
+                answer: '2/5',
+                unit: '',
+                tolerance: 0,
+                solution: 'Bei gleichen Nennern werden die Zähler subtrahiert: $\\frac{3}{5} - \\frac{1}{5} = \\frac{3-1}{5} = \\frac{2}{5}$',
+                explanation: 'Subtraktion von Brüchen mit gleichem Nenner.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $\\frac{1}{2} \\times \\frac{1}{3} = ?$',
+                answer: '1/6',
+                unit: '',
+                tolerance: 0,
+                solution: 'Zähler mal Zähler, Nenner mal Nenner: $\\frac{1}{2} \\times \\frac{1}{3} = \\frac{1 \\times 1}{2 \\times 3} = \\frac{1}{6}$',
+                explanation: 'Multiplikation von Brüchen.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $\\frac{2}{3} \\div \\frac{1}{2} = ?$',
+                answer: '4/3',
+                unit: '',
+                tolerance: 0,
+                solution: 'Division durch Multiplikation mit dem Kehrwert: $\\frac{2}{3} \\div \\frac{1}{2} = \\frac{2}{3} \\times \\frac{2}{1} = \\frac{4}{3}$',
+                explanation: 'Division von Brüchen durch Multiplikation mit dem Kehrwert.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Kürzen Sie: $\\frac{6}{9} = ?$',
+                answer: '2/3',
+                unit: '',
+                tolerance: 0,
+                solution: 'Beide Zahlen durch 3 teilen: $\\frac{6}{9} = \\frac{6÷3}{9÷3} = \\frac{2}{3}$',
+                explanation: 'Bruch kürzen durch den größten gemeinsamen Teiler.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $\\frac{1}{3} + \\frac{2}{3} = ?$',
+                answer: '1',
+                unit: '',
+                tolerance: 0,
+                solution: 'Bei gleichen Nennern: $\\frac{1}{3} + \\frac{2}{3} = \\frac{1+2}{3} = \\frac{3}{3} = 1$',
+                explanation: 'Addition von Brüchen mit gleichem Nenner ergibt eine ganze Zahl.'
+            },
+            
+            // MITTLERE AUFGABEN
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $\\frac{1}{2} + \\frac{1}{3} = ?$',
+                answer: '5/6',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist 6: $\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$',
+                explanation: 'Addition von Brüchen mit verschiedenen Nennern.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $\\frac{3}{4} - \\frac{1}{6} = ?$',
+                answer: '7/12',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist 12: $\\frac{3}{4} - \\frac{1}{6} = \\frac{9}{12} - \\frac{2}{12} = \\frac{7}{12}$',
+                explanation: 'Subtraktion von Brüchen mit verschiedenen Nennern.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $\\frac{2}{5} \\times \\frac{3}{4} = ?$',
+                answer: '3/10',
+                unit: '',
+                tolerance: 0,
+                solution: 'Zähler mal Zähler, Nenner mal Nenner: $\\frac{2}{5} \\times \\frac{3}{4} = \\frac{6}{20} = \\frac{3}{10}$',
+                explanation: 'Multiplikation von Brüchen und anschließendes Kürzen.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $\\frac{3}{8} \\div \\frac{2}{3} = ?$',
+                answer: '9/16',
+                unit: '',
+                tolerance: 0,
+                solution: 'Division durch Multiplikation mit dem Kehrwert: $\\frac{3}{8} \\div \\frac{2}{3} = \\frac{3}{8} \\times \\frac{3}{2} = \\frac{9}{16}$',
+                explanation: 'Division von Brüchen.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $\\frac{5}{6} - \\frac{1}{4} = ?$',
+                answer: '7/12',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist 12: $\\frac{5}{6} - \\frac{1}{4} = \\frac{10}{12} - \\frac{3}{12} = \\frac{7}{12}$',
+                explanation: 'Subtraktion mit verschiedenen Nennern.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $\\frac{2}{3} + \\frac{1}{4} = ?$',
+                answer: '11/12',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist 12: $\\frac{2}{3} + \\frac{1}{4} = \\frac{8}{12} + \\frac{3}{12} = \\frac{11}{12}$',
+                explanation: 'Addition mit verschiedenen Nennern.'
+            },
+            
+            // SCHWERE AUFGABEN
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $\\frac{2}{3} + \\frac{3}{8} - \\frac{1}{6} = ?$',
+                answer: '19/24',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist 24: $\\frac{2}{3} + \\frac{3}{8} - \\frac{1}{6} = \\frac{16}{24} + \\frac{9}{24} - \\frac{4}{24} = \\frac{21}{24} = \\frac{7}{8}$',
+                explanation: 'Gemischte Rechnung mit drei Brüchen.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $\\frac{5}{6} \\times \\frac{4}{15} = ?$',
+                answer: '2/9',
+                unit: '',
+                tolerance: 0,
+                solution: 'Vorher kürzen oder nachher: $\\frac{5}{6} \\times \\frac{4}{15} = \\frac{20}{90} = \\frac{2}{9}$',
+                explanation: 'Multiplikation mit anschließendem Kürzen.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $\\frac{7}{12} \\div \\frac{14}{9} = ?$',
+                answer: '3/8',
+                unit: '',
+                tolerance: 0,
+                solution: 'Division: $\\frac{7}{12} \\div \\frac{14}{9} = \\frac{7}{12} \\times \\frac{9}{14} = \\frac{63}{168} = \\frac{3}{8}$',
+                explanation: 'Division von Brüchen mit Kürzen.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $\\frac{3}{4} \\times \\frac{8}{9} \\div \\frac{2}{3} = ?$',
+                answer: '1',
+                unit: '',
+                tolerance: 0,
+                solution: 'Schrittweise: $\\frac{3}{4} \\times \\frac{8}{9} = \\frac{24}{36} = \\frac{2}{3}$, dann $\\frac{2}{3} \\div \\frac{2}{3} = 1$',
+                explanation: 'Kombination von Multiplikation und Division.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $\\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6} = ?$',
+                answer: '1',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist 6: $\\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6} = \\frac{3}{6} + \\frac{2}{6} + \\frac{1}{6} = \\frac{6}{6} = 1$',
+                explanation: 'Addition von drei Brüchen.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $\\frac{5}{8} - \\frac{1}{6} + \\frac{1}{4} = ?$',
+                answer: '17/24',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist 24: $\\frac{5}{8} - \\frac{1}{6} + \\frac{1}{4} = \\frac{15}{24} - \\frac{4}{24} + \\frac{6}{24} = \\frac{17}{24}$',
+                explanation: 'Gemischte Rechnung mit Addition und Subtraktion.'
+            }
+        ];
+
+        function toggleTheory() {
+            const content = document.getElementById('theoryContent');
+            const icon = document.querySelector('.toggle-icon');
+            
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+                icon.textContent = '▲';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '▼';
+            }
+        }
+
+        // Initialize exercise system when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create exercise system instance
+            window.exerciseSystem = new ExerciseSystem('grundlagen', 'brueche', bruchrechnungExercises);
+            
+            // Track progress if parent window exists
+            if (window.parent && window.parent.emWizard) {
+                window.parent.emWizard.progressTracker.updateLastTopic(window.location.href);
+            }
+        });
+
+        // Track exercise completion when page unloads
+        window.addEventListener('beforeunload', function() {
+            if (window.exerciseSystem && window.parent && window.parent.emWizard) {
+                const progress = window.exerciseSystem.getOverallProgress();
+                if (progress.completed > 0) {
+                    window.parent.emWizard.progressTracker.markExerciseCompleted('grundlagen', 'brueche');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

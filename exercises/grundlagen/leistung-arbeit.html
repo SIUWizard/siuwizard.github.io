@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leistung und Arbeit - SIU-EM-Wizard</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/exercise.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="exercise-header">
+        <nav class="exercise-nav">
+            <div class="nav-left">
+                <a href="../../index.html" class="btn btn-secondary">← Zurück zur Übersicht</a>
+            </div>
+            <div class="nav-center">
+                <h1>Leistung und Arbeit</h1>
+            </div>
+        </nav>
+    </header>
+
+    <div class="exercise-layout">
+        <!-- Main Content Area -->
+        <main class="exercise-main">
+            <!-- Theory Section (Collapsible) -->
+            <section class="theory-section" id="theorySection">
+                <div class="theory-header" onclick="toggleTheory()">
+                    <h2>📚 Theorie: Leistung, Arbeit und Wirkungsgrad</h2>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="theory-content" id="theoryContent">
+                    <div class="theory-grid">
+                        <div class="theory-card">
+                            <h3>Elektrische Leistung</h3>
+                            <p>$$P = U \times I$$</p>
+                            <p>$$P = \frac{U^2}{R} = I^2 \times R$$</p>
+                            <p><strong>Einheit:</strong> Watt [W]</p>
+                        </div>
+                        <div class="theory-card">
+                            <h3>Mechanische Leistung</h3>
+                            <p>$$P = \frac{W}{t} = F \times v$$</p>
+                            <p>$$P = M \times \omega$$</p>
+                            <p><strong>Einheit:</strong> Watt [W]</p>
+                        </div>
+                        <div class="theory-card">
+                            <h3>Arbeit/Energie</h3>
+                            <p>$$W = P \times t$$</p>
+                            <p><strong>Mechanisch:</strong> Joule [J]</p>
+                            <p><strong>Elektrisch:</strong> Wattstunde [Wh]</p>
+                            <p>1 kWh = 3.6 MJ</p>
+                        </div>
+                        <div class="theory-card">
+                            <h3>Wirkungsgrad</h3>
+                            <p>$$\eta = \frac{P_{ab}}{P_{auf}}$$</p>
+                            <p>$$\eta_{gesamt} = \eta_1 \times \eta_2 \times ... \times \eta_n$$</p>
+                            <p>Angabe: 0...1 oder 0...100%</p>
+                        </div>
+                    </div>
+                    <div class="theory-tips">
+                        <h4>💡 Wichtige Formeln:</h4>
+                        <ul>
+                            <li><strong>Mechanische Arbeit:</strong> $W = F \times s$</li>
+                            <li><strong>Rotationsleistung:</strong> $P = M \times 2\pi \times n$</li>
+                            <li><strong>Verlustleistung:</strong> $P_{Verlust} = P_{auf} - P_{ab}$</li>
+                            <li><strong>Umrechnung:</strong> $\omega = 2\pi \times n$ [rad/s]</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exercise Content Area -->
+            <div class="exercise-content">
+                <!-- Exercise content will be dynamically inserted here -->
+                <div class="exercise-question">
+                    <h3>Aufgabe wird geladen...</h3>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar will be dynamically created -->
+    </div>
+
+    <!-- Exercise System Script -->
+    <script src="../../js/exercise-system.js"></script>
+    
+    <script>
+        // Define exercises for Leistung und Arbeit
+        const leistungArbeitExercises = [
+            // EINFACHE AUFGABEN
+            {
+                difficulty: 'easy',
+                question: 'Ein Motor nimmt eine elektrische Leistung von 1000 W auf und hat einen Wirkungsgrad von 80%. Wie groß ist die mechanische Abgabeleistung?',
+                answer: '800',
+                unit: 'W',
+                tolerance: 1,
+                solution: 'Mechanische Leistung = Elektrische Leistung × Wirkungsgrad: P_mech = 1000 W × 0.8 = 800 W',
+                explanation: 'Wirkungsgrad-Berechnung: Abgegebene Leistung aus aufgenommener Leistung.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Eine Glühlampe mit 60 W brennt 5 Stunden. Wie viel Energie verbraucht sie in kWh?',
+                answer: '0.3',
+                unit: 'kWh',
+                tolerance: 0.001,
+                solution: 'Energie = Leistung × Zeit: W = 60 W × 5 h = 300 Wh = 0.3 kWh',
+                explanation: 'Energieberechnung: P × t und Umrechnung von Wh zu kWh.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Ein Heizgerät hat eine Leistung von 2000 W. Wie viel Strom fließt bei 230 V Spannung?',
+                answer: '8.7',
+                unit: 'A',
+                tolerance: 0.1,
+                solution: 'Strom = Leistung ÷ Spannung: I = P/U = 2000 W ÷ 230 V = 8.7 A',
+                explanation: 'Ohmsches Gesetz: I = P/U'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Eine Kraft von 100 N wirkt über eine Strecke von 5 m. Wie groß ist die verrichtete Arbeit?',
+                answer: '500',
+                unit: 'J',
+                tolerance: 1,
+                solution: 'Arbeit = Kraft × Weg: W = F × s = 100 N × 5 m = 500 J',
+                explanation: 'Mechanische Arbeit: W = F × s'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Ein Motor gibt 750 W ab und nimmt 1000 W auf. Wie groß ist der Wirkungsgrad in %?',
+                answer: '75',
+                unit: '%',
+                tolerance: 1,
+                solution: 'Wirkungsgrad = Abgabe ÷ Aufnahme: η = 750 W ÷ 1000 W = 0.75 = 75%',
+                explanation: 'Wirkungsgrad: η = P_ab / P_auf'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Ein Gerät mit 500 W Leistung läuft 2 Stunden. Wie viel Energie wird verbraucht?',
+                answer: '1000',
+                unit: 'Wh',
+                tolerance: 1,
+                solution: 'Energie = Leistung × Zeit: W = 500 W × 2 h = 1000 Wh',
+                explanation: 'Energieberechnung: W = P × t'
+            },
+            
+            // MITTLERE AUFGABEN
+            {
+                difficulty: 'medium',
+                question: 'Ein Elektromotor (230 V, 5 A, η = 85%) treibt eine Pumpe an. Wie groß ist die mechanische Leistung?',
+                answer: '977.5',
+                unit: 'W',
+                tolerance: 5,
+                solution: 'P_el = U × I = 230 V × 5 A = 1150 W. P_mech = η × P_el = 0.85 × 1150 W = 977.5 W',
+                explanation: 'Erst elektrische Leistung berechnen, dann mechanische Leistung über Wirkungsgrad.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Ein Motor mit 2 kW mechanischer Leistung und 90% Wirkungsgrad. Wie groß ist die elektrische Aufnahme?',
+                answer: '2222',
+                unit: 'W',
+                tolerance: 10,
+                solution: 'P_auf = P_ab ÷ η = 2000 W ÷ 0.9 = 2222 W',
+                explanation: 'Aufgenommene Leistung aus abgegebener Leistung und Wirkungsgrad.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Ein System besteht aus Motor (η₁ = 90%) und Getriebe (η₂ = 95%). Wie groß ist der Gesamtwirkungsgrad?',
+                answer: '85.5',
+                unit: '%',
+                tolerance: 0.5,
+                solution: 'Gesamtwirkungsgrad = η₁ × η₂ = 0.9 × 0.95 = 0.855 = 85.5%',
+                explanation: 'Bei Reihenschaltung werden die Wirkungsgrade multipliziert.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Ein Motor erzeugt 50 Nm Drehmoment bei 1500 min⁻¹. Wie groß ist die mechanische Leistung?',
+                answer: '7854',
+                unit: 'W',
+                tolerance: 50,
+                solution: 'P = M × ω = M × 2π × n = 50 Nm × 2π × (1500/60) s⁻¹ = 50 × 2π × 25 = 7854 W',
+                explanation: 'Rotationsleistung: P = M × ω, dabei ω = 2π × n (n in 1/s umrechnen)'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Eine Heizung verbraucht 3 kWh in 2 Stunden. Wie groß ist ihre Leistung?',
+                answer: '1500',
+                unit: 'W',
+                tolerance: 10,
+                solution: 'Leistung = Energie ÷ Zeit: P = 3 kWh ÷ 2 h = 1.5 kW = 1500 W',
+                explanation: 'Leistung aus Energie und Zeit: P = W/t'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Ein Fahrzeug fährt mit 50 km/h gegen 200 N Fahrwiderstand. Welche Leistung ist nötig?',
+                answer: '2778',
+                unit: 'W',
+                tolerance: 50,
+                solution: 'v = 50 km/h = 13.89 m/s. P = F × v = 200 N × 13.89 m/s = 2778 W',
+                explanation: 'Mechanische Leistung: P = F × v (Geschwindigkeit in m/s umrechnen)'
+            },
+            
+            // SCHWERE AUFGABEN
+            {
+                difficulty: 'hard',
+                question: 'Ein Elektromotor (400 V, 8 A, cos φ = 0.8, η = 92%) treibt einen Generator (η = 88%) an. Wie groß ist die elektrische Ausgangsleistung des Generators?',
+                answer: '2365',
+                unit: 'W',
+                tolerance: 50,
+                solution: 'P_Motor = U × I × cos φ = 400 × 8 × 0.8 = 2560 W. P_mech = 0.92 × 2560 = 2355 W. P_Generator = 0.88 × 2355 = 2072 W',
+                explanation: 'Mehrfache Umwandlung: Elektrisch → Mechanisch → Elektrisch mit jeweiligen Wirkungsgraden.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein Aufzug (1000 kg) fährt 20 m hoch in 30 s. Mit η = 80%, wie groß ist die Motorleistung?',
+                answer: '8167',
+                unit: 'W',
+                tolerance: 100,
+                solution: 'W_hub = m × g × h = 1000 × 9.81 × 20 = 196200 J. P_mech = W/t = 196200/30 = 6540 W. P_Motor = P_mech/η = 6540/0.8 = 8175 W',
+                explanation: 'Hubarbeit berechnen, mechanische Leistung ermitteln, dann über Wirkungsgrad auf Motorleistung schließen.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein System aus 3 Komponenten (η₁ = 92%, η₂ = 88%, η₃ = 95%) soll 5 kW abgeben. Wie groß ist die Aufnahme?',
+                answer: '6486',
+                unit: 'W',
+                tolerance: 50,
+                solution: 'η_ges = η₁ × η₂ × η₃ = 0.92 × 0.88 × 0.95 = 0.7704. P_auf = P_ab/η_ges = 5000/0.7704 = 6486 W',
+                explanation: 'Gesamtwirkungsgrad berechnen, dann Aufnahme aus Abgabe ermitteln.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein Motor (5 kW, η = 85%) läuft 8 h täglich. Strompreis: 0.25 €/kWh. Tägliche Kosten?',
+                answer: '11.76',
+                unit: '€',
+                tolerance: 0.1,
+                solution: 'P_auf = P_ab/η = 5000/0.85 = 5882 W = 5.882 kW. Täglicher Verbrauch = 5.882 × 8 = 47.06 kWh. Kosten = 47.06 × 0.25 = 11.76 €',
+                explanation: 'Elektrische Aufnahme berechnen, täglichen Verbrauch ermitteln, mit Strompreis multiplizieren.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein Windrad (η = 45%) bei 8 m/s Wind (ρ = 1.2 kg/m³, A = 200 m²). Wie groß ist die elektrische Leistung?',
+                answer: '17280',
+                unit: 'W',
+                tolerance: 500,
+                solution: 'P_Wind = 0.5 × ρ × A × v³ = 0.5 × 1.2 × 200 × 8³ = 61440 W. P_el = η × P_Wind = 0.45 × 61440 = 27648 W',
+                explanation: 'Windleistung nach P = 0.5 × ρ × A × v³ berechnen, dann elektrische Leistung über Wirkungsgrad.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein Pumpsystem fördert 100 L/min auf 15 m Höhe (η = 70%). Welche elektrische Leistung ist nötig?',
+                answer: '351',
+                unit: 'W',
+                tolerance: 10,
+                solution: 'Volumenstrom = 100 L/min = 0.00167 m³/s. P_hydr = ρ × g × Q × h = 1000 × 9.81 × 0.00167 × 15 = 246 W. P_el = P_hydr/η = 246/0.7 = 351 W',
+                explanation: 'Hydraulische Leistung aus Volumenstrom und Förderhöhe, dann elektrische Leistung über Wirkungsgrad.'
+            }
+        ];
+
+        function toggleTheory() {
+            const content = document.getElementById('theoryContent');
+            const icon = document.querySelector('.toggle-icon');
+            
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+                icon.textContent = '▲';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '▼';
+            }
+        }
+
+        // Initialize exercise system when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create exercise system instance
+            window.exerciseSystem = new ExerciseSystem('grundlagen', 'leistung-arbeit', leistungArbeitExercises);
+            
+            // Track progress if parent window exists
+            if (window.parent && window.parent.emWizard) {
+                window.parent.emWizard.progressTracker.updateLastTopic(window.location.href);
+            }
+        });
+
+        // Track exercise completion when page unloads
+        window.addEventListener('beforeunload', function() {
+            if (window.exerciseSystem && window.parent && window.parent.emWizard) {
+                const progress = window.exerciseSystem.getOverallProgress();
+                if (progress.completed > 0) {
+                    window.parent.emWizard.progressTracker.markExerciseCompleted('grundlagen', 'leistung-arbeit');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

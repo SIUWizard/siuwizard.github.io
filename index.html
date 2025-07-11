@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIU-EM-Wizard - Elektrotechnik & Mathematik Lernplattform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="assets/images/siu-logo.png" alt="SIU Logo" class="logo-img">
+                    <h1 class="logo-text">EM-Wizard</h1>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Theorie</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="theory/grundlagen.html">Grundlagen</a></li>
+                            <li><a href="theory/widerstandsschaltungen.html">Widerstandsschaltungen</a></li>
+                            <li><a href="theory/koordinaten-trigonometrie.html">Koordinaten & Trigonometrie</a></li>
+                            <li><a href="theory/feld-kondensatoren.html">Feld & Kondensatoren</a></li>
+                            <li><a href="theory/magnetismus-induktivitaet.html">Magnetismus & Induktivität</a></li>
+                            <li><a href="theory/zeitabhaengige-schaltungen.html">Zeitabhängige Schaltungen</a></li>
+                            <li><a href="theory/wechselstrom.html">Wechselstrom</a></li>
+                            <li><a href="theory/filter.html">Filter</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Übungen</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#exercises">Alle Übungen</a></li>
+                            <li><a href="#random-exercise">Zufällige Aufgabe</a></li>
+                            <li><a href="#difficulty-selector">Nach Schwierigkeit</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#progress" class="nav-link">Fortschritt</a>
+                    </li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-image">
+                    <img src="assets/images/wizard-cover2-crop.png" alt="EM-Wizard Cover" class="cover-image">
+                </div>
+                <div class="hero-content">
+                    <h1 class="hero-title">SIU-EM-Wizard</h1>
+                    <p class="hero-subtitle">Ihre interaktive Lernplattform für Elektrotechnik und Mathematik</p>
+                    <p class="hero-description">
+                        Entwickelt speziell für Studierende der höheren Fachschule SIU, die ihre Kenntnisse in Mathematik und Elektrotechnik auffrischen möchten.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="startLearning()">Jetzt lernen</button>
+                        <button class="btn btn-secondary" onclick="showProgress()">Mein Fortschritt</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Quick Access -->
+<!--        <section class="quick-access">
+            <div class="container">
+                <h2>Schnellzugriff</h2>
+                <div class="quick-cards">
+                    <div class="quick-card" onclick="openRandomExercise()">
+                        <div class="card-icon">🎲</div>
+                        <h3>Zufällige Aufgabe</h3>
+                        <p>Starten Sie mit einer zufälligen Übung</p>
+                    </div>
+                    <div class="quick-card" onclick="continueLastTopic()">
+                        <div class="card-icon">📖</div>
+                        <h3>Fortsetzen</h3>
+                        <p>Dort weitermachen, wo Sie aufgehört haben</p>
+                    </div>
+                    <div class="quick-card" onclick="showWeakAreas()">
+                        <div class="card-icon">🎯</div>
+                        <h3>Schwächen üben</h3>
+                        <p>Konzentrieren Sie sich auf schwierige Bereiche</p>
+                    </div>
+                    <div class="quick-card" onclick="openPracticeExam()">
+                        <div class="card-icon">📝</div>
+                        <h3>Musterprüfung</h3>
+                        <p>Testen Sie Ihr Wissen unter Prüfungsbedingungen</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Learning Topics -->
+        <section id="exercises" class="learning-topics">
+            <div class="container">
+                <h2>Lernbereiche</h2>
+                <div class="topics-grid">
+                    <!-- Topic 1: Grundlagen -->
+                    <div class="topic-card" data-topic="grundlagen">
+                        <div class="topic-header">
+                            <h3>1. Grundlagen der Elektrotechnik & Mathematik</h3>
+                            <div class="progress-indicator">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/15</span>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopics">
+                                <li><a href="exercises/grundlagen/grundrechenarten.html">Grundrechenarten</a></li>
+                                <li><a href="exercises/grundlagen/brueche.html">Brüche</a></li>
+                                <li><a href="exercises/grundlagen/potenzen.html">Potenzen</a></li>
+                                <li><a href="exercises/grundlagen/gleichungen.html">Lineare Gleichungen</a></li>
+                                <li><a href="exercises/grundlagen/ohmsches-gesetz.html">Ohmsches Gesetz</a></li>
+                                <li><a href="exercises/grundlagen/spezifischer-widerstand.html">Spezifischer Widerstand</a></li>
+                                <li><a href="exercises/grundlagen/leistung-arbeit.html">Leistung und Arbeit</a></li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-small btn-primary" onclick="startTopic('grundlagen')">Üben</button>
+                                <button class="btn btn-small btn-secondary" onclick="viewTheory('grundlagen')">Theorie</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 2: Widerstandsschaltungen -->
+                    <div class="topic-card" data-topic="widerstandsschaltungen">
+                        <div class="topic-header">
+                            <h3>2. Widerstandsschaltungen & Netzwerkberechnung</h3>
+                            <div class="progress-indicator">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/12</span>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopics">
+                                <li><a href="exercises/widerstandsschaltungen/serie-parallel.html">Serie- & Parallelschaltungen</a></li>
+                                <li><a href="exercises/widerstandsschaltungen/gemischte-schaltungen.html">Gemischte Schaltungen</a></li>
+                                <li><a href="exercises/widerstandsschaltungen/spannungsteiler.html">Spannungsteiler</a></li>
+                                <li><a href="exercises/widerstandsschaltungen/stromteiler.html">Stromteiler</a></li>
+                                <li><a href="exercises/widerstandsschaltungen/brueckenschaltungen.html">Brückenschaltungen</a></li>
+                                <li><a href="exercises/widerstandsschaltungen/kirchhoff.html">Kirchhoffsche Gesetze</a></li>
+                                <li><a href="exercises/widerstandsschaltungen/temp-widerstand.html">Temperaturabhängige Widerstände</a></li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-small btn-primary" onclick="startTopic('widerstandsschaltungen')">Üben</button>
+                                <button class="btn btn-small btn-secondary" onclick="viewTheory('widerstandsschaltungen')">Theorie</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 3: Koordinaten & Trigonometrie -->
+                    <div class="topic-card" data-topic="koordinaten-trigonometrie">
+                        <div class="topic-header">
+                            <h3>3. Koordinatensysteme & Trigonometrie</h3>
+                            <div class="progress-indicator">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/10</span>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopics">
+                                <li><a href="exercises/koordinaten-trigonometrie/winkelberechnungen.html">Winkelberechnungen</a></li>
+                                <li><a href="exercises/koordinaten-trigonometrie/pythagoras.html">Satz des Pythagoras</a></li>
+                                <li><a href="exercises/koordinaten-trigonometrie/trigonometrie.html">Trigonometrische Funktionen</a></li>
+                                <li><a href="exercises/koordinaten-trigonometrie/koordinatensysteme.html">Koordinatensysteme</a></li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-small btn-primary" onclick="startTopic('koordinaten-trigonometrie')">Üben</button>
+                                <button class="btn btn-small btn-secondary" onclick="viewTheory('koordinaten-trigonometrie')">Theorie</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 4: Feld & Kondensatoren -->
+                    <div class="topic-card" data-topic="feld-kondensatoren">
+                        <div class="topic-header">
+                            <h3>4. Elektrisches Feld & Kondensatoren</h3>
+                            <div class="progress-indicator">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/8</span>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopics">
+                                <li><a href="exercises/feld-kondensatoren/elektrisches-feld.html">Elektrisches Feld</a></li>
+                                <li><a href="exercises/feld-kondensatoren/kondensatoren.html">Kondensatoren</a></li>
+                                <li><a href="exercises/feld-kondensatoren/kapazitaet.html">Kapazitätsberechnungen</a></li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-small btn-primary" onclick="startTopic('feld-kondensatoren')">Üben</button>
+                                <button class="btn btn-small btn-secondary" onclick="viewTheory('feld-kondensatoren')">Theorie</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 5: Magnetismus & Induktivität -->
+                    <div class="topic-card" data-topic="magnetismus-induktivitaet">
+                        <div class="topic-header">
+                            <h3>5. Magnetismus & Induktivitäten</h3>
+                            <div class="progress-indicator">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/6</span>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopics">
+                                <li><a href="exercises/magnetismus-induktivitaet/magnetfeld.html">Magnetfeld</a></li>
+                                <li><a href="exercises/magnetismus-induktivitaet/induktionsgesetz.html">Induktionsgesetz</a></li>
+                                <li><a href="exercises/magnetismus-induktivitaet/induktivitaeten.html">Induktivitäten</a></li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-small btn-primary" onclick="startTopic('magnetismus-induktivitaet')">Üben</button>
+                                <button class="btn btn-small btn-secondary" onclick="viewTheory('magnetismus-induktivitaet')">Theorie</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 6: Zeitabhängige Schaltungen -->
+                    <div class="topic-card" data-topic="zeitabhaengige-schaltungen">
+                        <div class="topic-header">
+                            <h3>6. Zeitabhängige Schaltungen</h3>
+                            <div class="progress-indicator">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/8</span>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopics">
+                                <li><a href="exercises/zeitabhaengige-schaltungen/exponentialfunktionen.html">Exponentialfunktionen</a></li>
+                                <li><a href="exercises/zeitabhaengige-schaltungen/rc-schaltungen.html">RC-Schaltungen</a></li>
+                                <li><a href="exercises/zeitabhaengige-schaltungen/lade-entlade.html">Lade-/Entladevorgänge</a></li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-small btn-primary" onclick="startTopic('zeitabhaengige-schaltungen')">Üben</button>
+                                <button class="btn btn-small btn-secondary" onclick="viewTheory('zeitabhaengige-schaltungen')">Theorie</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 7: Wechselstrom -->
+                    <div class="topic-card" data-topic="wechselstrom">
+                        <div class="topic-header">
+                            <h3>7. Wechselstromkreis</h3>
+                            <div class="progress-indicator">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/9</span>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopics">
+                                <li><a href="exercises/wechselstrom/wechselstrom.html">Wechselstrom wichtigste Grössen</a></li>
+                                <li><a href="exercises/wechselstrom/wirk-blindwiderstand.html">Wirk- & Blindwiderstand</a></li>
+                                <li><a href="exercises/wechselstrom/reaktive-elemente.html">Reaktive Elemente</a></li>
+                                <li><a href="exercises/wechselstrom/leistung.html">Leistungsberechnungen</a></li>
+                                <li><a href="exercises/wechselstrom/blindleistungskompensation.html">Blindleistungskompensation</a></li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-small btn-primary" onclick="startTopic('wechselstrom')">Üben</button>
+                                <button class="btn btn-small btn-secondary" onclick="viewTheory('wechselstrom')">Theorie</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 8: Filter -->
+                    <div class="topic-card" data-topic="filter">
+                        <div class="topic-header">
+                            <h3>8. Filter</h3>
+                            <div class="progress-indicator">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/7</span>
+                            </div>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopics">
+                                <li><a href="exercises/filter/hoch-tiefpass.html">Hoch- & Tiefpass</a></li>
+                                <li><a href="exercises/filter/bode-diagramm.html">Bode-Diagramm</a></li>
+                                <li><a href="exercises/filter/grenzfrequenz.html">Grenzfrequenz</a></li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-small btn-primary" onclick="startTopic('filter')">Üben</button>
+                                <button class="btn btn-small btn-secondary" onclick="viewTheory('filter')">Theorie</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Exams -->
+        <!-- <section id="practice-exams" class="practice-exams">
+            <div class="container">
+                <h2>Musterprüfungen</h2>
+                <div class="exam-cards">
+                    <div class="exam-card">
+                        <h3>Musterprüfung 1</h3>
+                        <p>44 Punkte • 60 Minuten</p>
+                        <div class="exam-topics">
+                            <span class="topic-tag">Grundlagen</span>
+                            <span class="topic-tag">Schaltungen</span>
+                            <span class="topic-tag">Trigonometrie</span>
+                            <span class="topic-tag">Kondensatoren</span>
+                        </div>
+                        <div class="exam-actions">
+                            <button class="btn btn-primary" onclick="startExam(1)">Prüfung starten</button>
+                            <button class="btn btn-secondary" onclick="viewSolution(1)">Lösung ansehen</button>
+                        </div>
+                    </div>
+                    <div class="exam-card">
+                        <h3>Musterprüfung 2</h3>
+                        <p>52 Punkte • 60 Minuten</p>
+                        <div class="exam-topics">
+                            <span class="topic-tag">Koordinaten</span>
+                            <span class="topic-tag">Netzwerke</span>
+                            <span class="topic-tag">RC-Schaltungen</span>
+                            <span class="topic-tag">Wechselstrom</span>
+                        </div>
+                        <div class="exam-actions">
+                            <button class="btn btn-primary" onclick="startExam(2)">Prüfung starten</button>
+                            <button class="btn btn-secondary" onclick="viewSolution(2)">Lösung ansehen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Progress Section -->
+        <section id="progress" class="progress-section">
+            <div class="container">
+                <h2>Ihr Lernfortschritt</h2>
+                <div class="progress-overview">
+                    <div class="progress-stat">
+                        <h3>0</h3>
+                        <p>Aufgaben gelöst</p>
+                    </div>
+                    <div class="progress-stat">
+                        <h3>0%</h3>
+                        <p>Gesamtfortschritt</p>
+                    </div>
+                </div>
+                <div class="progress-chart">
+                    <canvas id="progressChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SIU-EM-Wizard</h3>
+                    <p>Ihre interaktive Lernplattform für Elektrotechnik und Mathematik</p>
+                </div>
+                <!-- <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#exercises">Übungen</a></li>
+                        <li><a href="#progress">Fortschritt</a></li>
+                    </ul>
+                </div> -->
+                <div class="footer-section">
+                    <h4>SIU</h4>
+                    <p><a href="https://www.siu.ch/" target="_blank">Schweizerisches Institut für Unternehmerschulung</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SIU-EM-Wizard. Entwickelt für Studierende der höheren Fachschule SIU für den Kurs EM. Stephan Geisser</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/exercise-generator.js"></script>
+    <script src="js/progress-tracker.js"></script>
+</body>
+</html>

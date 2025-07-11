@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grundlagen - Theorie - SIU-EM-Wizard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/theory.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="theory-header">
+        <nav class="theory-nav">
+            <div class="nav-left">
+                <a href="../index.html" class="btn btn-secondary">← Zurück zur Übersicht</a>
+            </div>
+            <div class="nav-center">
+                <h1>Grundlagen der Elektrotechnik & Mathematik</h1>
+            </div>
+            <div class="nav-right">
+                <a href="../exercises/grundlagen/grundrechenarten.html" class="btn btn-primary">Jetzt üben</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="theory-layout">
+        <!-- Main Content Area -->
+        <main class="theory-main">
+            <!-- Mathematical Foundations -->
+            <section id="mathematik-grundlagen" class="theory-section">
+                <div class="container">
+                    <h2>1. Mathematische Grundlagen</h2>
+                    
+                    <div class="content-block">
+                        <h3>Zahlenbereiche</h3>
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <h4>Natürliche Zahlen (ℕ)</h4>
+                                <p>$\mathbb{N} = \{1, 2, 3, 4, 5, ...\}$</p>
+                                <p>Zum Zählen und Ordnen</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Ganze Zahlen (ℤ)</h4>
+                                <p>$\mathbb{Z} = \{..., -2, -1, 0, 1, 2, ...\}$</p>
+                                <p>Positive und negative Zahlen</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Rationale Zahlen (ℚ)</h4>
+                                <p>$\mathbb{Q} = \left\{\frac{a}{b} \mid a, b \in \mathbb{Z}, b \neq 0\right\}$</p>
+                                <p>Brüche und endliche Dezimalzahlen</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Reelle Zahlen (ℝ)</h4>
+                                <p>Alle Zahlen auf der Zahlengeraden</p>
+                                <p>Inklusive irrationale Zahlen wie $\pi$ und $\sqrt{2}$</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Rechenregeln und Prioritäten</h3>
+                        <div class="formula-box">
+                            <h4>Reihenfolge der Operationen</h4>
+                            <ol class="priority-list">
+                                <li><strong>Klammern</strong> zuerst: $(...)$</li>
+                                <li><strong>Potenzen</strong>: $a^n$</li>
+                                <li><strong>Punktrechnung</strong>: $\times, \div$</li>
+                                <li><strong>Strichrechnung</strong>: $+, -$</li>
+                            </ol>
+                            <div class="example">
+                                <p><strong>Beispiel:</strong></p>
+                                <p>$3 + 4 \times 2^2 = 3 + 4 \times 4 = 3 + 16 = 19$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Arithmetic Operations -->
+            <section id="grundrechenarten" class="theory-section">
+                <div class="container">
+                    <h2>2. Grundrechenarten</h2>
+                    
+                    <div class="operation-grid">
+                        <div class="operation-card">
+                            <h3>Addition (+)</h3>
+                            <div class="operation-content">
+                                <p><strong>Definition:</strong> Zusammenzählen von Zahlen</p>
+                                <div class="formula">$a + b = c$</div>
+                                
+                                <h4>Eigenschaften:</h4>
+                                <ul>
+                                    <li><strong>Kommutativ:</strong> $a + b = b + a$</li>
+                                    <li><strong>Assoziativ:</strong> $(a + b) + c = a + (b + c)$</li>
+                                    <li><strong>Neutrales Element:</strong> $a + 0 = a$</li>
+                                </ul>
+                                
+                                <div class="example-box">
+                                    <h5>Beispiele:</h5>
+                                    <p>$15 + 23 = 38$</p>
+                                    <p>$(-5) + 8 = 3$</p>
+                                    <p>$7.5 + 2.3 = 9.8$</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="operation-card">
+                            <h3>Subtraktion (−)</h3>
+                            <div class="operation-content">
+                                <p><strong>Definition:</strong> Abziehen einer Zahl von einer anderen</p>
+                                <div class="formula">$a - b = c$</div>
+                                
+                                <h4>Eigenschaften:</h4>
+                                <ul>
+                                    <li><strong>Nicht kommutativ:</strong> $a - b \neq b - a$</li>
+                                    <li><strong>Addition des Inversen:</strong> $a - b = a + (-b)$</li>
+                                </ul>
+                                
+                                <div class="example-box">
+                                    <h5>Beispiele:</h5>
+                                    <p>$25 - 17 = 8$</p>
+                                    <p>$10 - 15 = -5$</p>
+                                    <p>$8.7 - 3.2 = 5.5$</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="operation-card">
+                            <h3>Multiplikation (×)</h3>
+                            <div class="operation-content">
+                                <p><strong>Definition:</strong> Wiederholte Addition</p>
+                                <div class="formula">$a \times b = c$ oder $a \cdot b = c$</div>
+                                
+                                <h4>Eigenschaften:</h4>
+                                <ul>
+                                    <li><strong>Kommutativ:</strong> $a \times b = b \times a$</li>
+                                    <li><strong>Assoziativ:</strong> $(a \times b) \times c = a \times (b \times c)$</li>
+                                    <li><strong>Distributiv:</strong> $a \times (b + c) = a \times b + a \times c$</li>
+                                </ul>
+                                
+                                <div class="example-box">
+                                    <h5>Beispiele:</h5>
+                                    <p>$6 \times 7 = 42$</p>
+                                    <p>$(-3) \times 4 = -12$</p>
+                                    <p>$2.5 \times 6 = 15$</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="operation-card">
+                            <h3>Division (÷)</h3>
+                            <div class="operation-content">
+                                <p><strong>Definition:</strong> Aufteilen in gleiche Teile</p>
+                                <div class="formula">$a \div b = c$ oder $\frac{a}{b} = c$</div>
+                                
+                                <h4>Eigenschaften:</h4>
+                                <ul>
+                                    <li><strong>Nicht kommutativ:</strong> $a \div b \neq b \div a$</li>
+                                    <li><strong>Division durch Null:</strong> Undefiniert!</li>
+                                    <li><strong>Multiplikation mit Kehrwert:</strong> $a \div b = a \times \frac{1}{b}$</li>
+                                </ul>
+                                
+                                <div class="example-box">
+                                    <h5>Beispiele:</h5>
+                                    <p>$24 \div 6 = 4$</p>
+                                    <p>$15 \div 3 = 5$</p>
+                                    <p>$10 \div 4 = 2.5$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fractions -->
+            <section id="brueche" class="theory-section">
+                <div class="container">
+                    <h2>3. Bruchrechnung</h2>
+                    
+                    <div class="content-block">
+                        <h3>Grundlagen</h3>
+                        <div class="formula-box">
+                            <p>Ein Bruch besteht aus <strong>Zähler</strong> und <strong>Nenner</strong>:</p>
+                            <div class="formula-large">$$\frac{\text{Zähler}}{\text{Nenner}} = \frac{a}{b} \quad (b \neq 0)$$</div>
+                            <p>Der Bruch $\frac{a}{b}$ bedeutet: "a Teile von insgesamt b gleichen Teilen"</p>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Bruchtypen</h3>
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <h4>Echter Bruch</h4>
+                                <p>Zähler < Nenner</p>
+                                <p>$\frac{3}{5}, \frac{7}{10}, \frac{1}{4}$</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Unechter Bruch</h4>
+                                <p>Zähler ≥ Nenner</p>
+                                <p>$\frac{7}{3}, \frac{5}{5}, \frac{9}{4}$</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Gemischte Zahl</h4>
+                                <p>Ganzer Teil + echter Bruch</p>
+                                <p>$2\frac{1}{3}, 1\frac{3}{4}, 3\frac{2}{5}$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ohm's Law -->
+            <section id="ohmsches-gesetz" class="theory-section">
+                <div class="container">
+                    <h2>4. Ohmsches Gesetz</h2>
+                    
+                    <div class="content-block">
+                        <h3>Das fundamentale Gesetz der Elektrotechnik</h3>
+                        <div class="formula-box highlight">
+                            <div class="formula-large">$$U = R \times I$$</div>
+                            <p class="formula-description">
+                                Die Spannung ist gleich dem Produkt aus Strom und Widerstand
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Varianten des Ohmschen Gesetzes</h3>
+                        <div class="formula-triangle">
+                            <div class="triangle-container">
+                                <div class="triangle">
+                                    <div class="triangle-top">U</div>
+                                    <div class="triangle-bottom">
+                                        <span>R</span>
+                                        <span>I</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="formula-variants">
+                                <div class="variant">
+                                    <h4>Spannung berechnen</h4>
+                                    <div class="formula">$$U = R \times I$$</div>
+                                </div>
+                                <div class="variant">
+                                    <h4>Strom berechnen</h4>
+                                    <div class="formula">$$I = \frac{U}{R}$$</div>
+                                </div>
+                                <div class="variant">
+                                    <h4>Widerstand berechnen</h4>
+                                    <div class="formula">$$R = \frac{U}{I}$$</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-block">
+                        <h3>Anwendungsbeispiele</h3>
+                        <div class="example-grid">
+                            <div class="example-card">
+                                <h4>Beispiel 1: Spannung berechnen</h4>
+                                <p><strong>Gegeben:</strong> $I = 2$ A, $R = 10$ Ω</p>
+                                <p><strong>Gesucht:</strong> $U$</p>
+                                <p><strong>Lösung:</strong> $U = I \times R = 2 \text{ A} \times 10 \text{ Ω} = 20 \text{ V}$</p>
+                            </div>
+                            
+                            <div class="example-card">
+                                <h4>Beispiel 2: Strom berechnen</h4>
+                                <p><strong>Gegeben:</strong> $U = 12$ V, $R = 4$ Ω</p>
+                                <p><strong>Gesucht:</strong> $I$</p>
+                                <p><strong>Lösung:</strong> $I = \frac{U}{R} = \frac{12 \text{ V}}{4 \text{ Ω}} = 3 \text{ A}$</p>
+                            </div>
+                            
+                            <div class="example-card">
+                                <h4>Beispiel 3: Widerstand berechnen</h4>
+                                <p><strong>Gegeben:</strong> $U = 9$ V, $I = 0.5$ A</p>
+                                <p><strong>Gesucht:</strong> $R$</p>
+                                <p><strong>Lösung:</strong> $R = \frac{U}{I} = \frac{9 \text{ V}}{0.5 \text{ A}} = 18 \text{ Ω}$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Specific Resistance -->
+            <section id="spezifischer-widerstand" class="theory-section">
+                <div class="container">
+                    <h2>5. Spezifischer Widerstand</h2>
+                    
+                    <div class="content-block">
+                        <h3>Grundformel</h3>
+                        <div class="formula-box">
+                            <p>Der Widerstand eines Leiters hängt ab von:</p>
+                            <div class="formula-large">$$R = \rho \cdot \frac{l}{A}$$</div>
+                            <ul class="parameter-list">
+                                <p>$\rho$ = spezifischer Widerstand [Ω·mm²/m]</p>
+                                <p>$l$ = Länge des Leiters [m]</p>
+                                <p>$A$ = Querschnittsfläche [mm²]</p>
+                            </ul>
+                            
+                            <div class="theory-tips" style="margin-top: var(--spacing-md);">
+                                <h4>⚠️ Wichtiger Hinweis - Leiter vs. Leitung:</h4>
+                                <ul>
+                                    <p><strong>Leiter:</strong> Normale Berechnung mit $R = \rho \cdot \frac{l}{A}$</p>
+                                    <p><strong>Leitung:</strong> Faktor 2 nicht vergessen! $R = 2 \cdot \rho \cdot \frac{l}{A}$</p>
+                                    <p><strong>Grund:</strong> Bei einer Leitung fließt der Strom hin UND zurück (2 Leiter)</p>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="material-table">
+                        <h4>Spezifische Widerstände (bei 20°C)</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Material</th>
+                                    <th>ρ [Ω·mm²/m]</th>
+                                    <th>Anwendung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Silber</td>
+                                    <td>0.017</td>
+                                    <td>Kontakte</td>
+                                </tr>
+                                <tr>
+                                    <td>Kupfer</td>
+                                    <td>0.0175</td>
+                                    <td>Kabel</td>
+                                </tr>
+                                <tr>
+                                    <td>Aluminium</td>
+                                    <td>0.03</td>
+                                    <td>Freileitungen</td>
+                                </tr>
+                                <tr>
+                                    <td>Eisen</td>
+                                    <td>0.10</td>
+                                    <td>Konstruktion</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Power and Work -->
+            <section id="leistung-arbeit" class="theory-section">
+                <div class="container">
+                    <h2>6. Leistung und Arbeit</h2>
+                    
+                    <div class="content-block">
+                        <h3>Elektrische Leistung</h3>
+                        <div class="formula-box">
+                            <p>Die elektrische Leistung ist das Produkt aus Spannung und Strom:</p>
+                            <div class="formula-large">$$P = U \times I$$</div>
+                            <p><strong>Einheit:</strong> Watt [W] = [V] × [A]</p>
+                        </div>
+                        
+                        <div class="formula-variants-grid">
+                            <div class="variant-card">
+                                <h4>Mit Ohmschen Gesetz</h4>
+                                <div class="formula">$$P = U \times I = U \times \frac{U}{R} = \frac{U^2}{R}$$</div>
+                            </div>
+                            <div class="variant-card">
+                                <h4>Alternative Form</h4>
+                                <div class="formula">$$P = U \times I = \frac{U}{R} \times R \times I = I^2 \times R$$</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Elektrische Arbeit</h3>
+                        <div class="formula-box">
+                            <p>Die elektrische Arbeit ist Leistung multipliziert mit Zeit:</p>
+                            <div class="formula-large">$$W = P \times t$$</div>
+                            <p><strong>Einheit:</strong> Wattsekunde [Ws] oder Kilowattstunde [kWh]</p>
+                            <p><strong>Umrechnung:</strong> 1 kWh = 3.6 × 10⁶ Ws = 3.6 MWs</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="theory-sidebar">
+            <div class="toc-sidebar">
+                <h3>Inhaltsverzeichnis</h3>
+                <ul class="toc-list">
+                    <li class="toc-item">
+                        <a href="#mathematik-grundlagen" class="toc-link" onclick="scrollToSection('mathematik-grundlagen')">
+                            1. Mathematische Grundlagen
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#grundrechenarten" class="toc-link" onclick="scrollToSection('grundrechenarten')">
+                            2. Grundrechenarten
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#brueche" class="toc-link" onclick="scrollToSection('brueche')">
+                            3. Bruchrechnung
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#ohmsches-gesetz" class="toc-link" onclick="scrollToSection('ohmsches-gesetz')">
+                            4. Ohmsches Gesetz
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#spezifischer-widerstand" class="toc-link" onclick="scrollToSection('spezifischer-widerstand')">
+                            5. Spezifischer Widerstand
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#leistung-arbeit" class="toc-link" onclick="scrollToSection('leistung-arbeit')">
+                            6. Leistung und Arbeit
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-progress">
+                <h4>Lesefortschritt</h4>
+                <div class="section-item" data-section="mathematik-grundlagen">
+                    <div class="section-number">1</div>
+                    <div class="section-title">Mathematische Grundlagen</div>
+                </div>
+                <div class="section-item" data-section="grundrechenarten">
+                    <div class="section-number">2</div>
+                    <div class="section-title">Grundrechenarten</div>
+                </div>
+                <div class="section-item" data-section="brueche">
+                    <div class="section-number">3</div>
+                    <div class="section-title">Bruchrechnung</div>
+                </div>
+                <div class="section-item" data-section="ohmsches-gesetz">
+                    <div class="section-number">4</div>
+                    <div class="section-title">Ohmsches Gesetz</div>
+                </div>
+                <div class="section-item" data-section="spezifischer-widerstand">
+                    <div class="section-number">5</div>
+                    <div class="section-title">Spezifischer Widerstand</div>
+                </div>
+                <div class="section-item" data-section="leistung-arbeit">
+                    <div class="section-number">6</div>
+                    <div class="section-title">Leistung und Arbeit</div>
+                </div>
+            </div>
+
+            <div class="sidebar-navigation">
+                <div class="nav-buttons">
+                    <a href="../index.html" class="nav-btn secondary">
+                        Zurück zur Hauptseite
+                    </a>
+                    <a href="../exercises/grundlagen/grundrechenarten.html" class="nav-btn primary">
+                        Jetzt üben
+                    </a>
+                    <a href="widerstandsschaltungen.html" class="nav-btn secondary">
+                        Nächstes Kapitel →
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Smooth scrolling and TOC functionality
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Update active TOC link and section progress
+        function updateActiveTOC() {
+            const sections = document.querySelectorAll('.theory-section');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sectionItems = document.querySelectorAll('.section-item');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop <= 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Update TOC active state
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Mark sections as read when they come into view
+            sectionItems.forEach(item => {
+                const sectionId = item.getAttribute('data-section');
+                if (sectionId === current) {
+                    item.classList.add('read');
+                    // Save reading progress
+                    saveReadingProgress(sectionId);
+                }
+            });
+        }
+
+        // Save reading progress to localStorage
+        function saveReadingProgress(sectionId) {
+            const progressKey = 'theory-progress-grundlagen';
+            let progress = JSON.parse(localStorage.getItem(progressKey) || '[]');
+            
+            if (!progress.includes(sectionId)) {
+                progress.push(sectionId);
+                localStorage.setItem(progressKey, JSON.stringify(progress));
+            }
+        }
+
+        // Load reading progress from localStorage
+        function loadReadingProgress() {
+            const progressKey = 'theory-progress-grundlagen';
+            const progress = JSON.parse(localStorage.getItem(progressKey) || '[]');
+            
+            progress.forEach(sectionId => {
+                const sectionItem = document.querySelector(`[data-section="${sectionId}"]`);
+                if (sectionItem) {
+                    sectionItem.classList.add('read');
+                }
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadReadingProgress();
+            updateActiveTOC();
+            
+            // Set up scroll listener
+            window.addEventListener('scroll', updateActiveTOC);
+            
+            // Render MathJax
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+
+            // Track page visit
+            if (window.parent && window.parent.emWizard) {
+                window.parent.emWizard.updateLastTopic(window.location.href);
+            }
+        });
+    </script>
+</body>
+</html>

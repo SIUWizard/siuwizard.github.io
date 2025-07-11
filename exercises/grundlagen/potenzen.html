@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potenzen - SIU-EM-Wizard</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/exercise.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="exercise-header">
+        <nav class="exercise-nav">
+            <div class="nav-left">
+                <a href="../../index.html" class="btn btn-secondary">← Zurück zur Übersicht</a>
+            </div>
+            <div class="nav-center">
+                <h1>Potenzen und Wurzeln</h1>
+            </div>
+        </nav>
+    </header>
+
+    <div class="exercise-layout">
+        <!-- Main Content Area -->
+        <main class="exercise-main">
+            <!-- Theory Section (Collapsible) -->
+            <section class="theory-section" id="theorySection">
+                <div class="theory-header" onclick="toggleTheory()">
+                    <h2>📚 Theorie: Potenzen und Wurzeln</h2>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="theory-content" id="theoryContent">
+                    <div class="theory-grid">
+                        <div class="theory-card">
+                            <h3>Potenzen</h3>
+                            <p>$$a^n = \underbrace{a \times a \times ... \times a}_{n \text{ mal}}$$</p>
+                            <p><strong>Beispiel:</strong> $2^3 = 2 \times 2 \times 2 = 8$</p>
+                        </div>
+                        <div class="theory-card">
+                            <h3>Potenzgesetze</h3>
+                            <p>$a^m \times a^n = a^{m+n}$</p>
+                            <p>$a^m \div a^n = a^{m-n}$</p>
+                            <p>$(a^m)^n = a^{m \times n}$</p>
+                            <p>$a^0 = 1$ (für $a \neq 0$)</p>
+                        </div>
+                        <div class="theory-card">
+                            <h3>Negative Exponenten</h3>
+                            <p>$$a^{-n} = \frac{1}{a^n}$$</p>
+                            <p><strong>Beispiel:</strong> $2^{-3} = \frac{1}{2^3} = \frac{1}{8}$</p>
+                        </div>
+                        <div class="theory-card">
+                            <h3>Wurzeln</h3>
+                            <p>$$\sqrt[n]{a} = b \Leftrightarrow b^n = a$$</p>
+                            <p><strong>Beispiel:</strong> $\sqrt{16} = 4$ weil $4^2 = 16$</p>
+                        </div>
+                    </div>
+                    <div class="theory-tips">
+                        <h4>💡 Wichtige Regeln:</h4>
+                        <ul>
+                            <li><strong>Quadratwurzel:</strong> $\sqrt{a} = \sqrt[2]{a}$</li>
+                            <li><strong>Kubikwurzel:</strong> $\sqrt[3]{a}$</li>
+                            <li><strong>Wurzelgesetze:</strong> $\sqrt{a \times b} = \sqrt{a} \times \sqrt{b}$</li>
+                            <li><strong>Vorsicht:</strong> $\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}$</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exercise Content Area -->
+            <div class="exercise-content">
+                <!-- Exercise content will be dynamically inserted here -->
+                <div class="exercise-question">
+                    <h3>Aufgabe wird geladen...</h3>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar will be dynamically created -->
+    </div>
+
+    <!-- Exercise System Script -->
+    <script src="../../js/exercise-system.js"></script>
+    
+    <script>
+        // Define exercises for Potenzen und Wurzeln
+        const potenzenExercises = [
+            // EINFACHE AUFGABEN
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $2^3 = ?$',
+                answer: '8',
+                unit: '',
+                tolerance: 0,
+                solution: '$2^3 = 2 \\times 2 \\times 2 = 8$',
+                explanation: 'Einfache Potenz: 2 hoch 3 bedeutet 2 mal 2 mal 2.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $3^2 = ?$',
+                answer: '9',
+                unit: '',
+                tolerance: 0,
+                solution: '$3^2 = 3 \\times 3 = 9$',
+                explanation: 'Quadrat von 3: 3 hoch 2.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $5^2 = ?$',
+                answer: '25',
+                unit: '',
+                tolerance: 0,
+                solution: '$5^2 = 5 \\times 5 = 25$',
+                explanation: 'Quadratzahl: 5 zum Quadrat.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $\\sqrt{16} = ?$',
+                answer: '4',
+                unit: '',
+                tolerance: 0,
+                solution: '$\\sqrt{16} = 4$, weil $4^2 = 16$',
+                explanation: 'Quadratwurzel: Welche Zahl zum Quadrat ergibt 16?'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $\\sqrt{25} = ?$',
+                answer: '5',
+                unit: '',
+                tolerance: 0,
+                solution: '$\\sqrt{25} = 5$, weil $5^2 = 25$',
+                explanation: 'Quadratwurzel von 25.'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Berechnen Sie: $4^2 = ?$',
+                answer: '16',
+                unit: '',
+                tolerance: 0,
+                solution: '$4^2 = 4 \\times 4 = 16$',
+                explanation: 'Quadrat von 4.'
+            },
+            
+            // MITTLERE AUFGABEN
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $2^4 = ?$',
+                answer: '16',
+                unit: '',
+                tolerance: 0,
+                solution: '$2^4 = 2 \\times 2 \\times 2 \\times 2 = 16$',
+                explanation: '2 hoch 4: Vier mal die 2 multiplizieren.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $3^3 = ?$',
+                answer: '27',
+                unit: '',
+                tolerance: 0,
+                solution: '$3^3 = 3 \\times 3 \\times 3 = 27$',
+                explanation: 'Kubikzahl: 3 hoch 3.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $2^2 \\times 2^3 = ?$',
+                answer: '32',
+                unit: '',
+                tolerance: 0,
+                solution: '$2^2 \\times 2^3 = 2^{2+3} = 2^5 = 32$',
+                explanation: 'Potenzgesetz: Bei gleicher Basis werden die Exponenten addiert.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $\\sqrt{64} = ?$',
+                answer: '8',
+                unit: '',
+                tolerance: 0,
+                solution: '$\\sqrt{64} = 8$, weil $8^2 = 64$',
+                explanation: 'Quadratwurzel von 64.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $\\sqrt[3]{8} = ?$',
+                answer: '2',
+                unit: '',
+                tolerance: 0,
+                solution: '$\\sqrt[3]{8} = 2$, weil $2^3 = 8$',
+                explanation: 'Kubikwurzel: Welche Zahl hoch 3 ergibt 8?'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie: $5^0 = ?$',
+                answer: '1',
+                unit: '',
+                tolerance: 0,
+                solution: '$5^0 = 1$ (jede Zahl hoch 0 ist 1)',
+                explanation: 'Potenzgesetz: Jede Zahl (außer 0) hoch 0 ergibt 1.'
+            },
+            
+            // SCHWERE AUFGABEN
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $(2^3)^2 = ?$',
+                answer: '64',
+                unit: '',
+                tolerance: 0,
+                solution: '$(2^3)^2 = 2^{3 \\times 2} = 2^6 = 64$',
+                explanation: 'Potenz einer Potenz: Exponenten werden multipliziert.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $3^4 \\div 3^2 = ?$',
+                answer: '9',
+                unit: '',
+                tolerance: 0,
+                solution: '$3^4 \\div 3^2 = 3^{4-2} = 3^2 = 9$',
+                explanation: 'Division von Potenzen: Exponenten werden subtrahiert.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $2^{-3} = ?$',
+                answer: '0.125',
+                unit: '',
+                tolerance: 0.001,
+                solution: '$2^{-3} = \\frac{1}{2^3} = \\frac{1}{8} = 0.125$',
+                explanation: 'Negativer Exponent: $a^{-n} = \\frac{1}{a^n}$'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $\\sqrt[3]{27} = ?$',
+                answer: '3',
+                unit: '',
+                tolerance: 0,
+                solution: '$\\sqrt[3]{27} = 3$, weil $3^3 = 27$',
+                explanation: 'Kubikwurzel von 27.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $4^{1.5} = ?$',
+                answer: '8',
+                unit: '',
+                tolerance: 0.1,
+                solution: '$4^{1.5} = 4^{3/2} = (4^{1/2})^3 = 2^3 = 8$',
+                explanation: 'Gebrochener Exponent: $a^{m/n} = \\sqrt[n]{a^m}$'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie: $\\sqrt{2} \\times \\sqrt{8} = ?$',
+                answer: '4',
+                unit: '',
+                tolerance: 0.1,
+                solution: '$\\sqrt{2} \\times \\sqrt{8} = \\sqrt{2 \\times 8} = \\sqrt{16} = 4$',
+                explanation: 'Wurzelgesetz: $\\sqrt{a} \\times \\sqrt{b} = \\sqrt{a \\times b}$'
+            }
+        ];
+
+        function toggleTheory() {
+            const content = document.getElementById('theoryContent');
+            const icon = document.querySelector('.toggle-icon');
+            
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+                icon.textContent = '▲';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '▼';
+            }
+        }
+
+        // Initialize exercise system when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create exercise system instance
+            window.exerciseSystem = new ExerciseSystem('grundlagen', 'potenzen', potenzenExercises);
+            
+            // Track progress if parent window exists
+            if (window.parent && window.parent.emWizard) {
+                window.parent.emWizard.progressTracker.updateLastTopic(window.location.href);
+            }
+        });
+
+        // Track exercise completion when page unloads
+        window.addEventListener('beforeunload', function() {
+            if (window.exerciseSystem && window.parent && window.parent.emWizard) {
+                const progress = window.exerciseSystem.getOverallProgress();
+                if (progress.completed > 0) {
+                    window.parent.emWizard.progressTracker.markExerciseCompleted('grundlagen', 'potenzen');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
