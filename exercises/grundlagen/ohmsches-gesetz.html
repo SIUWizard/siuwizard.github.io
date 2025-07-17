@@ -139,6 +139,15 @@
                 solution: 'R = U ÷ I = 15 V ÷ 5 A = 3 Ω',
                 explanation: 'Einfache Widerstandsberechnung.'
             },
+            {
+                difficulty: 'easy',
+                question: 'Gegeben: U = 9 V, R = 3 Ω. Berechnen Sie den Strom I.',
+                answer: '3',
+                unit: 'A',
+                tolerance: 0.1,
+                solution: 'I = U ÷ R = 9 V ÷ 3 Ω = 3 A',
+                explanation: 'Direkte Anwendung I = U/R.'
+            },
             
             // MITTLERE AUFGABEN - Einheitenumrechnungen und einfache Verhältnisse
             {
@@ -186,12 +195,21 @@
                 solution: 'I = U/R. Wenn U₂ = 0.5×U₁, dann I₂ = (0.5×U₁)/R = 0.5×(U₁/R) = 0.5×I₁',
                 explanation: 'Der Strom ist proportional zur Spannung (I ~ U bei konstantem R).'
             },
+            {
+                difficulty: 'medium',
+                question: 'Ein 470 Ω Widerstand führt 25 mA. Welche Spannung liegt an?',
+                answer: '11.75',
+                unit: 'V',
+                tolerance: 0.1,
+                solution: 'I = 25 mA = 0.025 A. U = I × R = 0.025 A × 470 Ω = 11.75 V',
+                explanation: 'Umrechnung mA in A, dann U = I × R anwenden.'
+            },
             
             // SCHWERE AUFGABEN - Komplexere Änderungen und Anwendungen
             {
                 difficulty: 'hard',
                 question: 'Eine Anlage mit 5 kΩ Innenwiderstand wird von 100 V auf 50 V umgeschaltet. Wie ändert sich die Stromaufnahme?',
-                answer: '0.01',
+                answer: '-0.01',
                 unit: 'A',
                 tolerance: 0.001,
                 solution: 'I₁ = 100V/5000Ω = 0.02A. I₂ = 50V/5000Ω = 0.01A. Änderung = I₂ - I₁ = 0.01 - 0.02 = -0.01A',
@@ -223,6 +241,24 @@
                 tolerance: 0.01,
                 solution: 'I₁ = 5V/1000Ω = 0.005A = 5mA. I₂ = 5V/1500Ω = 0.00333A = 3.33mA. Änderung = 3.33 - 5 = -1.67mA',
                 explanation: 'Stromabnahme durch Widerstandserhöhung: von 5 mA auf 3.33 mA.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Zwei Widerstände R₁ = 100 Ω und R₂ = 200 Ω werden parallel geschaltet. Bei 12 V Spannung, welcher Gesamtstrom fließt?',
+                answer: '0.18',
+                unit: 'A',
+                tolerance: 0.01,
+                solution: 'R_ges = (R₁×R₂)/(R₁+R₂) = (100×200)/(100+200) = 66.67 Ω. I_ges = U/R_ges = 12V/66.67Ω = 0.18 A',
+                explanation: 'Parallelwiderstand berechnen, dann Gesamtstrom mit Ohmschen Gesetz.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Eine LED mit Vorwiderstand R soll bei 9 V Versorgung 20 mA führen. Die LED hat 2 V Spannungsabfall. Wie groß muss R sein?',
+                answer: '350',
+                unit: 'Ω',
+                tolerance: 5,
+                solution: 'U_R = U_ges - U_LED = 9V - 2V = 7V. R = U_R/I = 7V/0.02A = 350 Ω',
+                explanation: 'Spannung am Vorwiderstand = Gesamtspannung - LED-Spannung, dann R = U/I.'
             }
         ];
 

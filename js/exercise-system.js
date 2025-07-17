@@ -1,5 +1,5 @@
-// New Exercise System for SIU-EM-Wizard
-// Predefined exercises with specific questions and solutions
+// Updated Exercise System for SIU-EM-Wizard
+// Completely redesigned sidebar with topic dropdown always visible
 
 class ExerciseSystem {
     constructor(topicName, subtopicName, exercises) {
@@ -12,6 +12,85 @@ class ExerciseSystem {
             easy: { completed: 0, total: 0 },
             medium: { completed: 0, total: 0 },
             hard: { completed: 0, total: 0 }
+        };
+        
+        // Define all topic titles and subtopics
+        this.topicData = {
+            'grundlagen': {
+                title: 'Grundlagen der Elektrotechnik & Mathematik',
+                subtopics: [
+                    { name: 'grundrechenarten', title: 'Grundrechenarten' },
+                    { name: 'brueche', title: 'Brüche' },
+                    { name: 'potenzen', title: 'Potenzen' },
+                    { name: 'gleichungen', title: 'Lineare Gleichungen & Bruchgleichungen' },
+                    { name: 'ohmsches-gesetz', title: 'Ohmsches Gesetz' },
+                    { name: 'spezifischer-widerstand', title: 'Spezifischer Widerstand' },
+                    { name: 'leistung-arbeit', title: 'Leistung und Arbeit' }
+                ]
+            },
+            'widerstandsschaltungen': {
+                title: 'Widerstandsschaltungen & Netzwerkberechnung',
+                subtopics: [
+                    { name: 'serie-parallel', title: 'Serie- & Parallelschaltungen' },
+                    { name: 'gemischte-schaltungen', title: 'Gemischte Schaltungen' },
+                    { name: 'spannungsteiler', title: 'Spannungsteiler' },
+                    { name: 'stromteiler', title: 'Stromteiler' },
+                    { name: 'brueckenschaltungen', title: 'Brückenschaltungen' },
+                    { name: 'kirchhoff', title: 'Kirchhoffsche Gesetze' },
+                    { name: 'temp-widerstand', title: 'Temperaturabhängige Widerstände' }
+                ]
+            },
+            'koordinaten-trigonometrie': {
+                title: 'Koordinatensysteme & Trigonometrie',
+                subtopics: [
+                    { name: 'winkelberechnungen', title: 'Winkelberechnungen' },
+                    { name: 'pythagoras', title: 'Satz des Pythagoras' },
+                    { name: 'trigonometrie', title: 'Trigonometrische Funktionen' },
+                    { name: 'koordinatensysteme', title: 'Koordinatensysteme' }
+                ]
+            },
+            'feld-kondensatoren': {
+                title: 'Elektrisches Feld & Kondensatoren',
+                subtopics: [
+                    { name: 'elektrisches-feld', title: 'Elektrisches Feld' },
+                    { name: 'kondensatoren', title: 'Kondensatoren' },
+                    { name: 'kapazitaet', title: 'Kapazitätsberechnungen' }
+                ]
+            },
+            'magnetismus-induktivitaet': {
+                title: 'Magnetismus & Induktivitäten',
+                subtopics: [
+                    { name: 'magnetfeld', title: 'Magnetfeld' },
+                    { name: 'induktionsgesetz', title: 'Induktionsgesetz' },
+                    { name: 'induktivitaeten', title: 'Induktivitäten' }
+                ]
+            },
+            'zeitabhaengige-schaltungen': {
+                title: 'Zeitabhängige Schaltungen',
+                subtopics: [
+                    { name: 'exponentialfunktionen', title: 'Exponentialfunktionen' },
+                    { name: 'rc-schaltungen', title: 'RC-Schaltungen' },
+                    { name: 'lade-entlade', title: 'Lade-/Entladevorgänge' }
+                ]
+            },
+            'wechselstrom': {
+                title: 'Wechselstromkreis',
+                subtopics: [
+                    { name: 'wechselstrom', title: 'Wechselstrom wichtigste Grössen' },
+                    { name: 'wirk-blindwiderstand', title: 'Wirk- & Blindwiderstand' },
+                    { name: 'reaktive-elemente', title: 'Reaktive Elemente' },
+                    { name: 'leistung', title: 'Leistungsberechnungen' },
+                    { name: 'blindleistungskompensation', title: 'Blindleistungskompensation' }
+                ]
+            },
+            'filter': {
+                title: 'Filter',
+                subtopics: [
+                    { name: 'hoch-tiefpass', title: 'Hoch- & Tiefpass' },
+                    { name: 'bode-diagramm', title: 'Bode-Diagramm' },
+                    { name: 'grenzfrequenz', title: 'Grenzfrequenz' }
+                ]
+            }
         };
         
         this.loadProgress();
@@ -76,7 +155,32 @@ class ExerciseSystem {
         const sidebar = document.querySelector('.exercise-sidebar');
         if (!sidebar) return;
 
+        const currentTopic = this.topicData[this.topicName];
+        const subtopicOptions = currentTopic ? currentTopic.subtopics : [];
+
         sidebar.innerHTML = `
+            <!-- Topic Title -->
+            <div class="topic-title-section">
+                <h2 class="topic-title">${currentTopic ? currentTopic.title : this.topicName}</h2>
+            </div>
+
+            <!-- Subtopic Selector (Always Visible) -->
+            <div class="subtopic-selector-section">
+                <label for="subtopicSelect" class="subtopic-label">Unterthema wählen:</label>
+                <select id="subtopicSelect" class="subtopic-dropdown">
+                    ${subtopicOptions.map(sub => 
+                        `<option value="${sub.name}" ${sub.name === this.subtopicName ? 'selected' : ''}>${sub.title}</option>`
+                    ).join('')}
+                </select>
+            </div>
+
+            <!-- Exercise List by Difficulty -->
+            <div class="exercise-list">
+                <h4>Aufgaben</h4>
+                ${this.renderExerciseList()}
+            </div>
+
+            <!-- Progress Section (At Bottom) -->
             <div class="difficulty-progress">
                 <h3>Fortschritt</h3>
                 <div class="progress-item">
@@ -108,11 +212,7 @@ class ExerciseSystem {
                 </div>
             </div>
 
-            <div class="exercise-list">
-                <h4>Aufgaben</h4>
-                ${this.renderExerciseList()}
-            </div>
-
+            <!-- Navigation Controls -->
             <div class="sidebar-navigation">
                 <div class="nav-buttons">
                     <button class="nav-btn secondary" id="prevBtn">
@@ -137,6 +237,7 @@ class ExerciseSystem {
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const backBtn = document.getElementById('backBtn');
+        const subtopicSelect = document.getElementById('subtopicSelect');
 
         if (prevBtn) {
             prevBtn.addEventListener('click', () => this.previousExercise());
@@ -147,6 +248,17 @@ class ExerciseSystem {
         if (backBtn) {
             backBtn.addEventListener('click', () => {
                 window.location.href = '../../index.html';
+            });
+        }
+
+        // Subtopic dropdown - direct navigation without button
+        if (subtopicSelect) {
+            subtopicSelect.addEventListener('change', (e) => {
+                const selectedSubtopic = e.target.value;
+                if (selectedSubtopic && selectedSubtopic !== this.subtopicName) {
+                    // Navigate directly to the first exercise of selected subtopic
+                    window.location.href = `${selectedSubtopic}.html`;
+                }
             });
         }
 
@@ -258,10 +370,32 @@ class ExerciseSystem {
         this.updateSidebar();
     }
 
+    // Get proper exercise title with difficulty and number
+    getExerciseTitle() {
+        const exercise = this.exercises[this.currentExerciseIndex];
+        if (!exercise) return 'Aufgabe';
+
+        const difficulty = exercise.difficulty;
+        const difficultyLabels = {
+            easy: 'Einfach',
+            medium: 'Mittel',
+            hard: 'Schwer'
+        };
+
+        // Get exercises of same difficulty up to current index
+        const exercisesOfSameDifficulty = this.exercises.filter((ex, index) => 
+            ex.difficulty === difficulty && index <= this.currentExerciseIndex
+        );
+        
+        const numberInDifficulty = exercisesOfSameDifficulty.length;
+        
+        return `${difficultyLabels[difficulty]} Aufgabe ${numberInDifficulty}`;
+    }
+
     renderExerciseContent(exercise, container) {
         container.innerHTML = `
             <div class="exercise-question">
-                <h3>Aufgabe ${this.currentExerciseIndex + 1}</h3>
+                <h3>${this.getExerciseTitle()}</h3>
                 <div class="question-text">
                     ${exercise.question}
                 </div>
@@ -290,6 +424,14 @@ class ExerciseSystem {
                 <div id="solution" class="solution-section" style="display: none;">
                     <h4>Lösung:</h4>
                     <div class="solution-text">${exercise.solution}</div>
+                    <div class="explanation-text" style="margin-top: 15px; font-style: italic; color: #666;">
+                        ${exercise.explanation || ''}
+                    </div>
+                </div>
+                <div id="navigation-after-check" class="navigation-section" style="display: none;">
+                    <button class="nav-btn primary" id="continueBtn" style="margin-top: 20px;">
+                        Weiter zur nächsten Aufgabe
+                    </button>
                 </div>
             </div>
         `;
@@ -297,6 +439,7 @@ class ExerciseSystem {
         // Add event listeners
         const checkBtn = container.querySelector('#checkAnswerBtn');
         const input = container.querySelector('#userAnswer');
+        const continueBtn = container.querySelector('#continueBtn');
         
         if (checkBtn) {
             checkBtn.addEventListener('click', () => this.checkAnswer());
@@ -312,6 +455,12 @@ class ExerciseSystem {
             setTimeout(() => input.focus(), 100);
         }
 
+        if (continueBtn) {
+            continueBtn.addEventListener('click', () => {
+                this.nextExercise();
+            });
+        }
+
         // Render MathJax if available
         if (window.MathJax) {
             MathJax.typesetPromise([container]);
@@ -323,6 +472,9 @@ class ExerciseSystem {
         const userInput = document.getElementById('userAnswer').value.trim();
         const feedbackEl = document.getElementById('feedback');
         const solutionEl = document.getElementById('solution');
+        const navigationEl = document.getElementById('navigation-after-check');
+        const checkBtn = document.getElementById('checkAnswerBtn');
+        const userAnswerInput = document.getElementById('userAnswer');
 
         if (!userInput) {
             this.showFeedback('Bitte geben Sie eine Antwort ein.', 'error');
@@ -331,37 +483,46 @@ class ExerciseSystem {
 
         const isCorrect = this.validateAnswer(userInput, exercise.answer, exercise.tolerance);
         
+        // Disable input and check button after checking
+        if (checkBtn) checkBtn.disabled = true;
+        if (userAnswerInput) userAnswerInput.disabled = true;
+        
         if (isCorrect) {
             this.markExerciseCompleted(this.currentExerciseIndex);
-            this.showFeedback(`✅ Richtig! ${exercise.explanation || ''}`, 'success');
-            
-            // Auto-advance after 2 seconds
-            setTimeout(() => {
-                this.nextExercise();
-            }, 2000);
+            this.showFeedback(`✅ Richtig!`, 'success');
         } else {
             this.showFeedback(`❌ Falsch. Richtige Antwort: ${exercise.answer} ${exercise.unit || ''}`, 'error');
-            solutionEl.style.display = 'block';
+        }
+        
+        // Always show solution and navigation
+        if (solutionEl) solutionEl.style.display = 'block';
+        if (navigationEl && this.currentExerciseIndex < this.exercises.length - 1) {
+            navigationEl.style.display = 'block';
         }
     }
 
     validateAnswer(userAnswer, correctAnswer, tolerance = 0.01) {
-        // Remove common formatting
+        // Clean both answers by removing spaces and converting to lowercase
         const cleanUser = userAnswer.toLowerCase().replace(/\s+/g, '').replace(',', '.');
         const cleanCorrect = String(correctAnswer).toLowerCase().replace(/\s+/g, '').replace(',', '.');
 
-        // Try exact match first
+        // First try exact string match (for expressions like "3x+1", "2/3", etc.)
         if (cleanUser === cleanCorrect) {
             return true;
         }
 
-        // Try numeric comparison if both are numbers
-        const userNum = parseFloat(cleanUser);
-        const correctNum = parseFloat(cleanCorrect);
+        // Only try numeric comparison if BOTH inputs are pure numbers (no letters)
+        const isUserNumeric = /^-?(\d+\.?\d*|\.\d+)$/.test(cleanUser);
+        const isCorrectNumeric = /^-?(\d+\.?\d*|\.\d+)$/.test(cleanCorrect);
         
-        if (!isNaN(userNum) && !isNaN(correctNum)) {
-            const absoluteTolerance = Math.abs(correctNum) * tolerance + 0.001;
-            return Math.abs(userNum - correctNum) <= absoluteTolerance;
+        if (isUserNumeric && isCorrectNumeric) {
+            const userNum = parseFloat(cleanUser);
+            const correctNum = parseFloat(cleanCorrect);
+            
+            if (!isNaN(userNum) && !isNaN(correctNum)) {
+                const absoluteTolerance = Math.abs(correctNum) * tolerance + 0.001;
+                return Math.abs(userNum - correctNum) <= absoluteTolerance;
+            }
         }
 
         return false;
@@ -370,7 +531,7 @@ class ExerciseSystem {
     showFeedback(message, type) {
         const feedbackEl = document.getElementById('feedback');
         if (feedbackEl) {
-            feedbackEl.textContent = message;
+            feedbackEl.innerHTML = message;
             feedbackEl.className = `feedback ${type}`;
             feedbackEl.style.display = 'block';
         }
@@ -410,6 +571,9 @@ class ExerciseSystem {
             this.currentExerciseIndex++;
             this.clearFeedback();
             this.displayCurrentExercise();
+        } else {
+            // At the end, just update sidebar (dropdown is always visible)
+            this.updateSidebar();
         }
     }
 
@@ -424,12 +588,16 @@ class ExerciseSystem {
     clearFeedback() {
         const feedbackEl = document.getElementById('feedback');
         const solutionEl = document.getElementById('solution');
+        const navigationEl = document.getElementById('navigation-after-check');
         
         if (feedbackEl) {
             feedbackEl.style.display = 'none';
         }
         if (solutionEl) {
             solutionEl.style.display = 'none';
+        }
+        if (navigationEl) {
+            navigationEl.style.display = 'none';
         }
     }
 
@@ -445,10 +613,6 @@ class ExerciseSystem {
             nextBtn.disabled = this.currentExerciseIndex === this.exercises.length - 1;
             nextBtn.style.opacity = this.currentExerciseIndex === this.exercises.length - 1 ? '0.5' : '1';
         }
-    }
-
-    updateSidebar() {
-        this.renderSidebar();
     }
 
     // Get overall progress for the topic

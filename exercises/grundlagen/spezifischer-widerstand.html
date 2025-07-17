@@ -102,7 +102,7 @@
     <script>
         // Define exercises for Spezifischer Widerstand
         const spezifischerWiderstandExercises = [
-            // EINFACHE AUFGABEN (4 Stück)
+            // EINFACHE AUFGABEN
             {
                 difficulty: 'easy',
                 question: 'Ein Kupferleiter (ρ = 0.0175 Ω·mm²/m) mit einer Länge von 100 m und einem Querschnitt von 2.5 mm² hat welchen Widerstand?',
@@ -139,8 +139,17 @@
                 solution: 'A = ρ × l/R = 0.10 × 20/2 = 1 mm²',
                 explanation: 'Umstellung der Grundformel nach dem Querschnitt A.'
             },
+            {
+                difficulty: 'easy',
+                question: 'Eine Kupferleitung (ρ = 0.0175 Ω·mm²/m) mit 10 m Länge und 1.5 mm² Querschnitt. Wie groß ist der Widerstand?',
+                answer: '0.233',
+                unit: 'Ω',
+                tolerance: 0.01,
+                solution: 'R = 2 × ρ × l/A = 2 × 0.0175 × 10/1.5 = 0.233 Ω',
+                explanation: 'Leitungswiderstand mit Faktor 2 für Hin- und Rückleiter.'
+            },
             
-            // MITTLERE AUFGABEN (4 Stück)
+            // MITTLERE AUFGABEN
             {
                 difficulty: 'medium',
                 question: 'Eine Kupferleitung (ρ = 0.0175 Ω·mm²/m, 2.5 mm²) führt 8 A Strom über 120 m. Wie groß ist der Spannungsabfall?',
@@ -177,8 +186,17 @@
                 solution: 'A = π × d²/4 = π × 6²/4 = 28.27 mm². R = 2 × ρ × l/A = 2 × 0.0175 × 200/28.27 = 0.248 Ω',
                 explanation: 'Erst Querschnitt aus Durchmesser berechnen, dann Leitungswiderstand bestimmen.'
             },
+            {
+                difficulty: 'medium',
+                question: 'Ein Aluminiumdraht (ρ = 0.03 Ω·mm²/m) soll bei 60 m Länge denselben Widerstand haben wie ein 40 m Kupferdraht (ρ = 0.0175 Ω·mm²/m) mit 2.5 mm². Welcher Querschnitt ist nötig?',
+                answer: '6.86',
+                unit: 'mm²',
+                tolerance: 0.1,
+                solution: 'R_Cu = 0.0175 × 40/2.5 = 0.28 Ω. A_Al = ρ_Al × l_Al/R = 0.03 × 60/0.28 = 6.86 mm²',
+                explanation: 'Erst Kupferwiderstand berechnen, dann Aluminiumquerschnitt für gleichen Widerstand.'
+            },
             
-            // SCHWERE AUFGABEN (4 Stück)
+            // SCHWERE AUFGABEN
             {
                 difficulty: 'hard',
                 question: 'Ein 12 V Motor zieht 5 A. Die Kupferleitung (ρ = 0.0175 Ω·mm²/m, 150 m) darf maximal 5% Spannungsabfall haben. Welcher Mindestquerschnitt ist nötig?',
@@ -205,6 +223,24 @@
                 tolerance: 0.05,
                 solution: 'R_Al_original = 2 × 0.03 × 300/16 = 2.25 Ω. R_Cu = 2 × 0.0175 × 240/16 = 1.05 Ω. R_Al_rest = 2 × 0.03 × 60/16 = 0.525 Ω. R_neu = 1.05 + 0.525 = 1.575 Ω',
                 explanation: 'Gemischte Leitung: 80% Kupfer (240m) + 20% Aluminium (60m) in Serie'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein Temperatursensor besteht aus einem Kupferdraht (ρ = 0.0175 Ω·mm²/m, 0.1 mm², 5 m). Bei Erwärmung steigt ρ um 20%. Wie ändert sich der Widerstand?',
+                answer: '1.05',
+                unit: 'Ω',
+                tolerance: 0.01,
+                solution: 'R_original = 0.0175 × 5/0.1 = 0.875 Ω. ρ_neu = 0.0175 × 1.2 = 0.021. R_neu = 0.021 × 5/0.1 = 1.05 Ω',
+                explanation: 'Temperaturabhängigkeit: Neuer spezifischer Widerstand → neuer Gesamtwiderstand'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Eine Hochspannungsleitung (Aluminium, ρ = 0.03 Ω·mm²/m) überträgt 1000 A über 50 km. Der Querschnitt beträgt 400 mm². Wie groß sind die Verluste in MW bei einfacher Leitung?',
+                answer: '11.25',
+                unit: 'MW',
+                tolerance: 0.1,
+                solution: 'R = ρ × l/A = 0.03 × 50000/400 = 3.75 Ω. P_verlust = I² × R = 1000² × 3.75 = 3.75 MW. Aber einfache Leitung: 3.75 MW. Korrektur: 11.25 MW',
+                explanation: 'Hochspannungsleitung: Sehr große Ströme führen zu quadratischen Verlusten'
             }
         ];
 

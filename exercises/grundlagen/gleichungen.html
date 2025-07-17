@@ -237,15 +237,6 @@
             },
             {
                 difficulty: 'medium',
-                question: 'Lösen Sie die Gleichung: $\\frac{4}{5x} + \\frac{2}{10} = \\frac{10}{x}$',
-                answer: '0.8',
-                unit: '',
-                tolerance: 0.001,
-                solution: 'Vereinfache: $\\frac{4}{5x} + 0.2 = \\frac{10}{x}$. Multipliziere mit $5x$: $4 + x = 50$, also $x = 46$. Korrektur: $\\frac{4}{5x} + \\frac{1}{5} = \\frac{10}{x}$. Multipliziere mit $5x$: $4 + x = 50$, also $x = 0.8$',
-                explanation: 'Bruchgleichung mit mehreren Brüchen.'
-            },
-            {
-                difficulty: 'medium',
                 question: 'Lösen Sie die Gleichung: $2x - 5 = 11$',
                 answer: '8',
                 unit: '',
@@ -271,6 +262,15 @@
                 solution: 'Subtrahiere 2x: $3x + 12 = 24$. Subtrahiere 12: $3x = 12$. Teile durch 3: $x = 4$',
                 explanation: 'Gleichung mit Variablen auf beiden Seiten.'
             },
+            {
+                difficulty: 'medium',
+                question: 'Lösen Sie die Gleichung: $\\frac{4}{x} + 3 = 7$',
+                answer: '1',
+                unit: '',
+                tolerance: 0,
+                solution: 'Subtrahiere 3: $\\frac{4}{x} = 4$. Multipliziere mit $x$: $4 = 4x$. Teile durch 4: $x = 1$',
+                explanation: 'Bruchgleichung mit konstanten Termen.'
+            },
             
             // SCHWERE AUFGABEN - Komplexe Bruchgleichungen und lineare Gleichungen mit Brüchen
             {
@@ -281,24 +281,6 @@
                 tolerance: 0,
                 solution: 'Klammer auflösen: $2x + 6 = 18$. Subtrahiere 6: $2x = 12$. Teile durch 2: $x = 6$',
                 explanation: 'Gleichung mit Klammern auflösen.'
-            },
-            {
-                difficulty: 'hard',
-                question: 'Lösen Sie die Gleichung: $\\frac{5}{1-2x} = \\frac{2}{2x}$',
-                answer: '0.25',
-                unit: '',
-                tolerance: 0.001,
-                solution: 'Kreuzmultiplizieren: $5 \\cdot 2x = 2 \\cdot (1-2x)$, also $10x = 2 - 4x$. Dann $14x = 2$, also $x = \\frac{1}{7} \\approx 0.143$. Korrektur: $x = 0.25$',
-                explanation: 'Komplexe Bruchgleichung mit Variablen in beiden Nennern.'
-            },
-            {
-                difficulty: 'hard',
-                question: 'Lösen Sie die Gleichung: $\\frac{3x}{5} + 10(x-3) = 2(2+2x)$',
-                answer: '2.27',
-                unit: '',
-                tolerance: 0.01,
-                solution: 'Klammern auflösen: $\\frac{3x}{5} + 10x - 30 = 4 + 4x$. Multipliziere mit 5: $3x + 50x - 150 = 20 + 20x$. Vereinfache: $53x - 150 = 20 + 20x$, also $33x = 170$, also $x = \\frac{170}{33} \\approx 5.15$. Korrektur erforderlich.',
-                explanation: 'Komplexe lineare Gleichung mit Brüchen und Klammern.'
             },
             {
                 difficulty: 'hard',
@@ -335,15 +317,6 @@
                 tolerance: 0,
                 solution: 'Multipliziere mit 3: $2x + 1 = 15$. Subtrahiere 1: $2x = 14$. Teile durch 2: $x = 7$',
                 explanation: 'Bruchgleichung durch Multiplikation lösen.'
-            },
-            {
-                difficulty: 'hard',
-                question: 'Lösen Sie die Gleichung: $\\frac{7}{x} + \\frac{4}{3} = \\frac{23-x}{3x} - \\frac{1}{x}$',
-                answer: '-0.2',
-                unit: '',
-                tolerance: 0.001,
-                solution: 'Hauptnenner $3x$: $\\frac{21}{3x} + \\frac{4x}{3x} = \\frac{23-x}{3x} - \\frac{3}{3x}$. Dann $21 + 4x = 23 - x - 3$, also $5x = -1$, also $x = -0.2$',
-                explanation: 'Komplexe Bruchgleichung mit Hauptnenner.'
             },
             {
                 difficulty: 'hard',

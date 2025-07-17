@@ -96,14 +96,14 @@
     <script>
         // Define exercises for Elektrische Leistung und Arbeit
         const leistungArbeitExercises = [
-            // EINFACHE AUFGABEN (4 Stück)
+            // ============ EINFACHE AUFGABEN (EASY) ============
             {
                 difficulty: 'easy',
                 question: 'Ein Motor nimmt eine elektrische Leistung von 1000 W auf und hat einen Wirkungsgrad von 80%. Wie groß ist die mechanische Abgabeleistung?',
                 answer: '800',
                 unit: 'W',
                 tolerance: 1,
-                solution: 'Mechanische Leistung = Elektrische Leistung × Wirkungsgrad: P_mech = 1000 W × 0.8 = 800 W',
+                solution: 'Mechanische Leistung = Elektrische Leistung × Wirkungsgrad:<br>$P_{mech} = 1000 \\text{ W} \\times 0.8 = 800 \\text{ W}$',
                 explanation: 'Wirkungsgrad-Berechnung: Abgegebene Leistung aus aufgenommener Leistung.'
             },
             {
@@ -112,7 +112,7 @@
                 answer: '0.3',
                 unit: 'kWh',
                 tolerance: 0.001,
-                solution: 'Energie = Leistung × Zeit: W = 60 W × 5 h = 300 Wh = 0.3 kWh',
+                solution: 'Energie = Leistung × Zeit:<br>$W = 60 \\text{ W} \\times 5 \\text{ h} = 300 \\text{ Wh} = 0.3 \\text{ kWh}$',
                 explanation: 'Energieberechnung: P × t und Umrechnung von Wh zu kWh.'
             },
             {
@@ -121,7 +121,7 @@
                 answer: '8.7',
                 unit: 'A',
                 tolerance: 0.1,
-                solution: 'Strom = Leistung ÷ Spannung: I = P/U = 2000 W ÷ 230 V = 8.7 A',
+                solution: 'Strom = Leistung ÷ Spannung:<br>$I = \\frac{P}{U} = \\frac{2000 \\text{ W}}{230 \\text{ V}} = 8.7 \\text{ A}$',
                 explanation: 'Ohmsches Gesetz: I = P/U'
             },
             {
@@ -130,18 +130,36 @@
                 answer: '4',
                 unit: 'fach',
                 tolerance: 0.1,
-                solution: 'P = U²/R. Bei Verdopplung von U: P_neu = (2U)²/R = 4U²/R = 4 × P_alt',
+                solution: '$P = \\frac{U^2}{R}$. Bei Verdopplung von U:<br>$P_{neu} = \\frac{(2U)^2}{R} = \\frac{4U^2}{R} = 4 \\times P_{alt}$',
                 explanation: 'Quadratische Abhängigkeit der Leistung von der Spannung bei konstantem Widerstand.'
             },
-            
-            // MITTLERE AUFGABEN (4 Stück)
+            {
+                difficulty: 'easy',
+                question: 'Ein Elektromotor arbeitet mit 12 V und 3 A. Wie groß ist die elektrische Leistung?',
+                answer: '36',
+                unit: 'W',
+                tolerance: 0.1,
+                solution: 'Elektrische Leistung:<br>$P = U \\times I = 12 \\text{ V} \\times 3 \\text{ A} = 36 \\text{ W}$',
+                explanation: 'Grundformel der elektrischen Leistung: P = U × I'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Ein Gerät verbraucht 1.5 kWh in 3 Stunden. Wie groß ist die durchschnittliche Leistung?',
+                answer: '500',
+                unit: 'W',
+                tolerance: 1,
+                solution: 'Leistung = Energie ÷ Zeit:<br>$P = \\frac{W}{t} = \\frac{1.5 \\text{ kWh}}{3 \\text{ h}} = 0.5 \\text{ kW} = 500 \\text{ W}$',
+                explanation: 'Durchschnittliche Leistung aus Energieverbrauch und Zeit.'
+            },
+
+            // ============ MITTLERE AUFGABEN (MEDIUM) ============
             {
                 difficulty: 'medium',
                 question: 'Ein Elektromotor (230 V, 5 A, η = 85%) treibt eine Pumpe an. Wie groß ist die mechanische Leistung?',
                 answer: '977.5',
                 unit: 'W',
                 tolerance: 5,
-                solution: 'P_el = U × I = 230 V × 5 A = 1150 W. P_mech = η × P_el = 0.85 × 1150 W = 977.5 W',
+                solution: 'Elektrische Leistung:<br>$P_{el} = U \\times I = 230 \\text{ V} \\times 5 \\text{ A} = 1150 \\text{ W}$<br>Mechanische Leistung:<br>$P_{mech} = \\eta \\times P_{el} = 0.85 \\times 1150 \\text{ W} = 977.5 \\text{ W}$',
                 explanation: 'Erst elektrische Leistung berechnen, dann mechanische Leistung über Wirkungsgrad.'
             },
             {
@@ -150,7 +168,7 @@
                 answer: '2222',
                 unit: 'W',
                 tolerance: 10,
-                solution: 'P_auf = P_ab ÷ η = 2000 W ÷ 0.9 = 2222 W',
+                solution: 'Aufgenommene Leistung:<br>$P_{auf} = \\frac{P_{ab}}{\\eta} = \\frac{2000 \\text{ W}}{0.9} = 2222 \\text{ W}$',
                 explanation: 'Aufgenommene Leistung aus abgegebener Leistung und Wirkungsgrad.'
             },
             {
@@ -159,7 +177,7 @@
                 answer: '25',
                 unit: '%',
                 tolerance: 1,
-                solution: 'P = I²R. Bei halbem Strom: P_neu = (I/2)²R = I²R/4 = P_alt/4 = 25% der ursprünglichen Leistung',
+                solution: '$P = I^2 \\times R$. Bei halbem Strom:<br>$P_{neu} = \\left(\\frac{I}{2}\\right)^2 \\times R = \\frac{I^2}{4} \\times R = \\frac{P_{alt}}{4} = 25\\%$ der ursprünglichen Leistung',
                 explanation: 'Quadratische Abhängigkeit der Leistung vom Strom bei konstantem Widerstand.'
             },
             {
@@ -168,18 +186,36 @@
                 answer: '83.6',
                 unit: '%',
                 tolerance: 0.5,
-                solution: 'Gesamtwirkungsgrad = η₁ × η₂ = 0.95 × 0.88 = 0.836 = 83.6%',
+                solution: 'Gesamtwirkungsgrad:<br>$\\eta_{gesamt} = \\eta_1 \\times \\eta_2 = 0.95 \\times 0.88 = 0.836 = 83.6\\%$',
                 explanation: 'Bei Reihenschaltung werden die Wirkungsgrade multipliziert.'
             },
-            
-            // SCHWERE AUFGABEN (4 Stück)
+            {
+                difficulty: 'medium',
+                question: 'Ein 24 V Motor zieht 2.5 A und hat 85% Wirkungsgrad. Welche Verlustleistung entsteht?',
+                answer: '9',
+                unit: 'W',
+                tolerance: 0.5,
+                solution: 'Aufgenommene Leistung:<br>$P_{auf} = U \\times I = 24 \\text{ V} \\times 2.5 \\text{ A} = 60 \\text{ W}$<br>Abgegebene Leistung:<br>$P_{ab} = \\eta \\times P_{auf} = 0.85 \\times 60 = 51 \\text{ W}$<br>Verlustleistung:<br>$P_{verlust} = P_{auf} - P_{ab} = 60 - 51 = 9 \\text{ W}$',
+                explanation: 'Verlustleistung ist die Differenz zwischen aufgenommener und abgegebener Leistung.'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Eine 100 W Lampe brennt täglich 6 Stunden. Strompreis: 0.30 €/kWh. Wie viel kostet das pro Monat (30 Tage)?',
+                answer: '5.4',
+                unit: '€',
+                tolerance: 0.1,
+                solution: 'Täglicher Verbrauch:<br>$W_{täglich} = 100 \\text{ W} \\times 6 \\text{ h} = 0.6 \\text{ kWh}$<br>Monatlicher Verbrauch:<br>$W_{monat} = 0.6 \\times 30 = 18 \\text{ kWh}$<br>Kosten:<br>$Kosten = 18 \\times 0.30 = 5.40 \\text{ €}$',
+                explanation: 'Energieverbrauch berechnen und mit Strompreis multiplizieren.'
+            },
+
+            // ============ SCHWERE AUFGABEN (HARD) ============
             {
                 difficulty: 'hard',
                 question: 'Ein System aus 3 Komponenten (η₁ = 92%, η₂ = 88%, η₃ = 95%) soll 5 kW abgeben. Wie groß ist die elektrische Aufnahme?',
                 answer: '6486',
                 unit: 'W',
                 tolerance: 50,
-                solution: 'η_ges = η₁ × η₂ × η₃ = 0.92 × 0.88 × 0.95 = 0.7704. P_auf = P_ab/η_ges = 5000/0.7704 = 6486 W',
+                solution: 'Gesamtwirkungsgrad:<br>$\\eta_{gesamt} = \\eta_1 \\times \\eta_2 \\times \\eta_3 = 0.92 \\times 0.88 \\times 0.95 = 0.7704$<br>Aufgenommene Leistung:<br>$P_{auf} = \\frac{P_{ab}}{\\eta_{gesamt}} = \\frac{5000}{0.7704} = 6486 \\text{ W}$',
                 explanation: 'Gesamtwirkungsgrad berechnen, dann Aufnahme aus Abgabe ermitteln.'
             },
             {
@@ -188,7 +224,7 @@
                 answer: '11.76',
                 unit: '€',
                 tolerance: 0.1,
-                solution: 'P_auf = P_ab/η = 5000/0.85 = 5882 W = 5.882 kW. Täglicher Verbrauch = 5.882 × 8 = 47.06 kWh. Kosten = 47.06 × 0.25 = 11.76 €',
+                solution: 'Aufgenommene Leistung:<br>$P_{auf} = \\frac{P_{ab}}{\\eta} = \\frac{5000}{0.85} = 5882 \\text{ W} = 5.882 \\text{ kW}$<br>Täglicher Verbrauch:<br>$W_{täglich} = 5.882 \\times 8 = 47.06 \\text{ kWh}$<br>Tägliche Kosten:<br>$Kosten = 47.06 \\times 0.25 = 11.76 \\text{ €}$',
                 explanation: 'Elektrische Aufnahme berechnen, täglichen Verbrauch ermitteln, mit Strompreis multiplizieren.'
             },
             {
@@ -197,7 +233,7 @@
                 answer: '2.5',
                 unit: 'A',
                 tolerance: 0.1,
-                solution: 'Bei konstanter Leistung: P = U × I → I = P/U. I_neu = 500 W / 200 V = 2.5 A. (I_alt = 500/100 = 5 A, also halbiert)',
+                solution: 'Bei konstanter Leistung: $P = U \\times I \\Rightarrow I = \\frac{P}{U}$<br>Neuer Strom:<br>$I_{neu} = \\frac{500 \\text{ W}}{200 \\text{ V}} = 2.5 \\text{ A}$<br>(Ursprünglich: $I_{alt} = \\frac{500}{100} = 5 \\text{ A}$, also halbiert)',
                 explanation: 'Bei konstanter Leistung ist der Strom umgekehrt proportional zur Spannung.'
             },
             {
@@ -206,8 +242,26 @@
                 answer: '79.2',
                 unit: 'W',
                 tolerance: 1,
-                solution: 'P_auf = U × I = 24 V × 15 A = 360 W. P_ab = η × P_auf = 0.78 × 360 = 280.8 W. P_verlust = P_auf - P_ab = 360 - 280.8 = 79.2 W',
+                solution: 'Aufgenommene Leistung:<br>$P_{auf} = U \\times I = 24 \\text{ V} \\times 15 \\text{ A} = 360 \\text{ W}$<br>Abgegebene Leistung:<br>$P_{ab} = \\eta \\times P_{auf} = 0.78 \\times 360 = 280.8 \\text{ W}$<br>Verlustleistung:<br>$P_{verlust} = P_{auf} - P_{ab} = 360 - 280.8 = 79.2 \\text{ W}$',
                 explanation: 'Aufgenommene Leistung berechnen, abgegebene Leistung über Wirkungsgrad, Differenz ist Verlustleistung.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein Transformator (η = 96%) speist zwei Motoren: Motor 1 (3 kW, η = 88%) und Motor 2 (2 kW, η = 90%). Wie groß ist die Gesamtaufnahme aus dem Netz?',
+                answer: '6076',
+                unit: 'W',
+                tolerance: 50,
+                solution: 'Aufnahme Motor 1:<br>$P_{M1,auf} = \\frac{3000}{0.88} = 3409 \\text{ W}$<br>Aufnahme Motor 2:<br>$P_{M2,auf} = \\frac{2000}{0.90} = 2222 \\text{ W}$<br>Trafo-Abgabe:<br>$P_{Trafo,ab} = 3409 + 2222 = 5631 \\text{ W}$<br>Netz-Aufnahme:<br>$P_{Netz} = \\frac{5631}{0.96} = 5866 \\text{ W}$',
+                explanation: 'Alle Verluste in der Kette berücksichtigen: Motoren und Transformator.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein Heizwiderstand (230 V, 2000 W) wird an 400 V betrieben. Wie ändert sich die Leistung?',
+                answer: '6034',
+                unit: 'W',
+                tolerance: 50,
+                solution: 'Ursprünglicher Widerstand:<br>$R = \\frac{U^2}{P} = \\frac{230^2}{2000} = 26.45 \\Omega$<br>Neue Leistung bei 400 V:<br>$P_{neu} = \\frac{U_{neu}^2}{R} = \\frac{400^2}{26.45} = 6034 \\text{ W}$<br>Oder direkt: $P_{neu} = P_{alt} \\times \\left(\\frac{U_{neu}}{U_{alt}}\\right)^2 = 2000 \\times \\left(\\frac{400}{230}\\right)^2$',
+                explanation: 'Bei konstantem Widerstand ändert sich die Leistung quadratisch mit der Spannung.'
             }
         ];
 
