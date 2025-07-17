@@ -1,4 +1,4 @@
-# SIU-EM-Wizard 🧙‍♂️⚡
+# SIU-Wizard 🧙‍♂️⚡
 
 Eine interaktive Lernplattform für Elektrotechnik und Mathematik des ersten Semesters an der SIU (Schweizerisches Institut für Unternehmerschulung).
 
@@ -69,14 +69,8 @@ Diese Plattform richtet sich an Studierende der höheren Fachschule im Bereich E
 ### Als GitHub Pages Website:
 1. Forken Sie das Repository
 2. Aktivieren Sie GitHub Pages in den Repository-Einstellungen
-3. Die Website ist unter `https://[ihr-username].github.io/SIU-EM-Wizard` verfügbar
+3. Die Website ist unter `https://siuwizard.github.io` verfügbar
 
-### Lokale Entwicklung:
-```bash
-git clone https://github.com/[ihr-username]/SIU-EM-Wizard.git
-cd SIU-EM-Wizard
-# Öffnen Sie index.html in Ihrem Browser
-```
 
 ## 🛠️ Technologie-Stack
 

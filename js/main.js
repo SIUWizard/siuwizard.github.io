@@ -1,4 +1,4 @@
-// SIU-EM-Wizard Main JavaScript - Updated for New System
+// SIU-Wizard Main JavaScript - Updated for New System
 // Handles navigation, UI interactions, and core functionality
 
 class EMWizard {
@@ -21,7 +21,7 @@ class EMWizard {
         // Initialize progress tracking with new system
         this.progressTracker = window.progressTracker || new ProgressTracker();
         
-        console.log('SIU-EM-Wizard (New System) initialized successfully');
+        console.log('SIU-Wizard (New System) initialized successfully');
     }
 
     setupNavigation() {
@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show welcome message for first-time users
         if (!localStorage.getItem('em-wizard-visited')) {
             setTimeout(() => {
-                showNotification('Willkommen beim SIU-EM-Wizard! Viel Erfolg beim Lernen!', 'success');
+                showNotification('Willkommen beim SIU-Wizard! Viel Erfolg beim Lernen!', 'success');
                 localStorage.setItem('em-wizard-visited', 'true');
             }, 1000);
         }

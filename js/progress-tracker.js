@@ -3,8 +3,8 @@
 
 class ProgressTracker {
     constructor() {
-        this.storageKey = 'siu-em-wizard-progress';
-        this.sessionKey = 'siu-em-wizard-session';
+        this.storageKey = 'siu-wizard-progress';
+        this.sessionKey = 'siu-wizard-session';
         this.startTime = Date.now();
         this.currentSession = this.initializeSession();
         this.progress = this.loadProgress();
@@ -682,7 +682,7 @@ class ProgressTracker {
         const dataStr = JSON.stringify(this.progress, null, 2);
         const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
         
-        const exportFileDefaultName = `siu-em-wizard-progress-${new Date().toISOString().split('T')[0]}.json`;
+        const exportFileDefaultName = `siu-wizard-progress-${new Date().toISOString().split('T')[0]}.json`;
         
         const linkElement = document.createElement('a');
         linkElement.setAttribute('href', dataUri);

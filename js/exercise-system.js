@@ -1,4 +1,4 @@
-// Updated Exercise System for SIU-EM-Wizard
+// Updated Exercise System for SIU-Wizard
 // Completely redesigned sidebar with topic dropdown always visible
 
 class ExerciseSystem {
