@@ -72,15 +72,6 @@
                             <p><small>Abdecken der gesuchten Größe zeigt die Formel</small></p>
                         </div>
                     </div>
-                    <div class="theory-tips">
-                        <h4>💡 Wichtige Tipps:</h4>
-                        <ul>
-                            <li><strong>Einheiten beachten!</strong> Alle Werte in Grundeinheiten</li>
-                            <li><strong>Kommastellen:</strong> Bei Strom oft mA (Milliampere)</li>
-                            <li><strong>Probe:</strong> Ergebnis in ursprüngliche Formel einsetzen</li>
-                            <li><strong>Spezifischer Widerstand:</strong> Denken Sie an Leiter vs. Leitung!</li>
-                        </ul>
-                    </div>
                 </div>
             </section>
 
@@ -102,7 +93,7 @@
     <script>
         // Define exercises for Ohmsches Gesetz
         const ohmschesGesetzExercises = [
-            // EINFACHE AUFGABEN
+            // EINFACHE AUFGABEN - Direkte Anwendung
             {
                 difficulty: 'easy',
                 question: 'Gegeben: I = 2 A, R = 10 Ω. Berechnen Sie die Spannung U.',
@@ -132,142 +123,106 @@
             },
             {
                 difficulty: 'easy',
-                question: 'Gegeben: I = 0.5 A, R = 20 Ω. Berechnen Sie die Spannung U.',
-                answer: '10',
+                question: 'Gegeben: I = 0.5 A, R = 16 Ω. Berechnen Sie die Spannung U.',
+                answer: '8',
                 unit: 'V',
                 tolerance: 0.1,
-                solution: 'U = I × R = 0.5 A × 20 Ω = 10 V',
+                solution: 'U = I × R = 0.5 A × 16 Ω = 8 V',
                 explanation: 'Ohmsches Gesetz mit Dezimalzahlen.'
             },
             {
                 difficulty: 'easy',
-                question: 'Gegeben: U = 230 V, I = 5 A. Berechnen Sie den Widerstand R.',
-                answer: '46',
-                unit: 'Ω',
-                tolerance: 0.1,
-                solution: 'R = U ÷ I = 230 V ÷ 5 A = 46 Ω',
-                explanation: 'Widerstandsberechnung mit typischen Haushaltwerten.'
-            },
-            {
-                difficulty: 'easy',
-                question: 'Gegeben: U = 6 V, R = 12 Ω. Berechnen Sie den Strom I.',
-                answer: '0.5',
-                unit: 'A',
-                tolerance: 0.01,
-                solution: 'I = U ÷ R = 6 V ÷ 12 Ω = 0.5 A',
-                explanation: 'Stromberechnung mit Dezimalergebnis.'
-            },
-            
-            // MITTLERE AUFGABEN
-            {
-                difficulty: 'medium',
-                question: 'Eine Glühlampe (60 W) wird an 230 V betrieben. Wie groß ist der Strom?',
-                answer: '0.26',
-                unit: 'A',
-                tolerance: 0.01,
-                solution: 'Zuerst Widerstand: R = U²/P = 230²/60 = 883 Ω. Dann I = U/R = 230/883 = 0.26 A',
-                explanation: 'Kombination von Leistungsformel und Ohmschen Gesetz.'
-            },
-            {
-                difficulty: 'medium',
-                question: 'Ein Heizwiderstand nimmt bei 400 V einen Strom von 8 A auf. Wie groß ist sein Widerstand?',
-                answer: '50',
-                unit: 'Ω',
-                tolerance: 0.1,
-                solution: 'R = U ÷ I = 400 V ÷ 8 A = 50 Ω',
-                explanation: 'Widerstandsberechnung bei höheren Spannungen.'
-            },
-            {
-                difficulty: 'medium',
-                question: 'Ein Widerstand von 150 Ω wird von 200 mA durchflossen. Wie groß ist die Spannung?',
-                answer: '30',
-                unit: 'V',
-                tolerance: 0.1,
-                solution: 'I = 200 mA = 0.2 A. U = I × R = 0.2 A × 150 Ω = 30 V',
-                explanation: 'Umrechnung von mA in A beachten: 200 mA = 0.2 A'
-            },
-            {
-                difficulty: 'medium',
-                question: 'An einem 75 Ω Widerstand liegen 15 V an. Welche Leistung wird umgesetzt?',
+                question: 'Gegeben: U = 15 V, I = 5 A. Berechnen Sie den Widerstand R.',
                 answer: '3',
-                unit: 'W',
-                tolerance: 0.1,
-                solution: 'I = U/R = 15/75 = 0.2 A. P = U × I = 15 × 0.2 = 3 W oder P = U²/R = 15²/75 = 3 W',
-                explanation: 'Leistungsberechnung über Ohmsches Gesetz: P = U²/R oder P = UI'
-            },
-            {
-                difficulty: 'medium',
-                question: 'Ein Draht hat 25 Ω Widerstand. Bei welcher Spannung fließen 800 mA?',
-                answer: '20',
-                unit: 'V',
-                tolerance: 0.1,
-                solution: 'I = 800 mA = 0.8 A. U = I × R = 0.8 A × 25 Ω = 20 V',
-                explanation: 'Spannungsberechnung mit mA-Umrechnung.'
-            },
-            {
-                difficulty: 'medium',
-                question: 'Eine LED mit Vorwiderstand (R = 220 Ω) an 9 V. Wie groß ist der LED-Strom?',
-                answer: '0.041',
-                unit: 'A',
-                tolerance: 0.001,
-                solution: 'I = U ÷ R = 9 V ÷ 220 Ω = 0.041 A = 41 mA',
-                explanation: 'Typische LED-Schaltung mit Vorwiderstand.'
-            },
-            
-            // SCHWERE AUFGABEN
-            {
-                difficulty: 'hard',
-                question: 'Zwei Widerstände (R₁ = 30 Ω, R₂ = 20 Ω) in Reihe an 100 V. Welche Spannung liegt an R₁?',
-                answer: '60',
-                unit: 'V',
-                tolerance: 0.1,
-                solution: 'R_ges = R₁ + R₂ = 30 + 20 = 50 Ω. I = U/R_ges = 100/50 = 2 A. U₁ = I × R₁ = 2 × 30 = 60 V',
-                explanation: 'Reihenschaltung: Gesamtwiderstand berechnen, Strom ermitteln, Teilspannung berechnen.'
-            },
-            {
-                difficulty: 'hard',
-                question: 'Drei Widerstände (je 60 Ω) parallel an 12 V. Wie groß ist der Gesamtstrom?',
-                answer: '0.6',
-                unit: 'A',
-                tolerance: 0.01,
-                solution: 'R_parallel = R/n = 60/3 = 20 Ω. I_ges = U/R_parallel = 12/20 = 0.6 A',
-                explanation: 'Parallelschaltung gleicher Widerstände: R_ges = R/n'
-            },
-            {
-                difficulty: 'hard',
-                question: 'Ein Motor nimmt 5 A bei 400 V auf (cos φ = 0.8). Wie groß ist der Scheinwiderstand?',
-                answer: '80',
                 unit: 'Ω',
                 tolerance: 0.1,
-                solution: 'Z = U ÷ I = 400 V ÷ 5 A = 80 Ω (Scheinwiderstand bei Wechselstrom)',
-                explanation: 'Bei Wechselstrom: Scheinwiderstand Z = U/I (unabhängig vom cos φ)'
+                solution: 'R = U ÷ I = 15 V ÷ 5 A = 3 Ω',
+                explanation: 'Einfache Widerstandsberechnung.'
+            },
+            
+            // MITTLERE AUFGABEN - Einheitenumrechnungen und einfache Verhältnisse
+            {
+                difficulty: 'medium',
+                question: 'Gegeben: U = 9 V, R = 1.5 kΩ. Berechnen Sie den Strom I in mA.',
+                answer: '6',
+                unit: 'mA',
+                tolerance: 0.1,
+                solution: 'R = 1.5 kΩ = 1500 Ω. I = U ÷ R = 9 V ÷ 1500 Ω = 0.006 A = 6 mA',
+                explanation: 'Einheitenumrechnung: 1.5 kΩ = 1500 Ω und Ergebnis in mA umrechnen.'
             },
             {
-                difficulty: 'hard',
-                question: 'Ein Kupferdraht (ρ = 0.0175 Ω·mm²/m, l = 100 m, A = 2.5 mm²) führt 10 A. Welcher Spannungsabfall?',
-                answer: '0.7',
-                unit: 'V',
-                tolerance: 0.01,
-                solution: 'R = ρ × l/A = 0.0175 × 100/2.5 = 0.7 Ω. U = I × R = 10 × 0.7 = 7 V',
-                explanation: 'Spezifischer Widerstand und Ohmsches Gesetz kombiniert.'
+                difficulty: 'medium',
+                question: 'Ein Widerstand wird von 250 mA durchflossen bei 12 V. Wie groß ist R?',
+                answer: '48',
+                unit: 'Ω',
+                tolerance: 0.1,
+                solution: 'I = 250 mA = 0.25 A. R = U ÷ I = 12 V ÷ 0.25 A = 48 Ω',
+                explanation: 'Umrechnung von mA in A: 250 mA = 0.25 A'
             },
             {
-                difficulty: 'hard',
-                question: 'Ein Spannungsteiler (R₁ = 1 kΩ, R₂ = 2 kΩ) an 15 V. Welche Spannung an R₂?',
-                answer: '10',
+                difficulty: 'medium',
+                question: 'Bei welcher Spannung fließen durch einen 2.2 kΩ Widerstand 5 mA?',
+                answer: '11',
                 unit: 'V',
                 tolerance: 0.1,
-                solution: 'Spannungsteiler: U₂ = U × R₂/(R₁+R₂) = 15 × 2000/(1000+2000) = 15 × 2/3 = 10 V',
-                explanation: 'Spannungsteiler-Formel: U₂ = U_ges × R₂/(R₁+R₂)'
+                solution: 'R = 2.2 kΩ = 2200 Ω, I = 5 mA = 0.005 A. U = I × R = 0.005 A × 2200 Ω = 11 V',
+                explanation: 'Beide Werte umrechnen: 2.2 kΩ = 2200 Ω, 5 mA = 0.005 A'
             },
             {
+                difficulty: 'medium',
+                question: 'Der Strom verdoppelt sich bei gleicher Spannung. Um welchen Faktor ändert sich der Widerstand?',
+                answer: '0.5',
+                unit: '',
+                tolerance: 0.01,
+                solution: 'Aus I = U/R folgt: I₂ = 2×I₁ = U/R₂. Also R₂ = U/(2×I₁) = R₁/2 = 0.5×R₁',
+                explanation: 'Bei doppeltem Strom halbiert sich der Widerstand (I ~ 1/R bei konstanter Spannung).'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Die Spannung wird halbiert, der Widerstand bleibt gleich. Wie ändert sich der Strom?',
+                answer: '0.5',
+                unit: '',
+                tolerance: 0.01,
+                solution: 'I = U/R. Wenn U₂ = 0.5×U₁, dann I₂ = (0.5×U₁)/R = 0.5×(U₁/R) = 0.5×I₁',
+                explanation: 'Der Strom ist proportional zur Spannung (I ~ U bei konstantem R).'
+            },
+            
+            // SCHWERE AUFGABEN - Komplexere Änderungen und Anwendungen
+            {
                 difficulty: 'hard',
-                question: 'Ein NTC-Widerstand ändert sich von 1000 Ω (20°C) auf 500 Ω (50°C). Bei 10 V, wie ändert sich der Strom?',
+                question: 'Eine Anlage mit 5 kΩ Innenwiderstand wird von 100 V auf 50 V umgeschaltet. Wie ändert sich die Stromaufnahme?',
                 answer: '0.01',
                 unit: 'A',
                 tolerance: 0.001,
-                solution: 'I₁ = 10V/1000Ω = 0.01A. I₂ = 10V/500Ω = 0.02A. Änderung = 0.02 - 0.01 = 0.01A',
-                explanation: 'Temperaturabhängiger Widerstand: Stromänderung durch Widerstandsänderung.'
+                solution: 'I₁ = 100V/5000Ω = 0.02A. I₂ = 50V/5000Ω = 0.01A. Änderung = I₂ - I₁ = 0.01 - 0.02 = -0.01A',
+                explanation: 'Bei halber Spannung halbiert sich auch der Strom: von 20 mA auf 10 mA.'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein Heizwiderstand soll bei 230 V den dreifachen Strom führen wie bei 120 V. Welches Widerstandsverhältnis ist nötig?',
+                answer: '0.52',
+                unit: '',
+                tolerance: 0.01,
+                solution: 'I₁ = 120V/R₁, I₂ = 230V/R₂ = 3×I₁. Also 230V/R₂ = 3×120V/R₁. R₂/R₁ = 230/(3×120) = 0.52',
+                explanation: 'R₂ = 230V/(3×I₁) und R₁ = 120V/I₁, daher R₂/R₁ = 230/(3×120) ≈ 0.52'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Bei konstanter Spannung wird der Widerstand um 20% erhöht. Um wie viel Prozent ändert sich der Strom?',
+                answer: '-16.7',
+                unit: '%',
+                tolerance: 0.1,
+                solution: 'R₂ = 1.2×R₁. I₂ = U/R₂ = U/(1.2×R₁) = I₁/1.2 = 0.833×I₁. Änderung = (0.833-1)×100% = -16.7%',
+                explanation: 'Bei 20% mehr Widerstand sinkt der Strom um 16.7% (I = 1/1.2 = 0.833 des ursprünglichen Werts).'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Ein Temperatursensor ändert seinen Widerstand von 1 kΩ auf 1.5 kΩ. Bei 5 V, wie ändert sich der Strom in mA?',
+                answer: '-1.67',
+                unit: 'mA',
+                tolerance: 0.01,
+                solution: 'I₁ = 5V/1000Ω = 0.005A = 5mA. I₂ = 5V/1500Ω = 0.00333A = 3.33mA. Änderung = 3.33 - 5 = -1.67mA',
+                explanation: 'Stromabnahme durch Widerstandserhöhung: von 5 mA auf 3.33 mA.'
             }
         ];
 

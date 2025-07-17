@@ -159,11 +159,41 @@ a:hover {
     width: auto;
 }
 
+.logo-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .logo-text {
     color: var(--white);
     font-size: var(--font-size-xl);
     font-weight: 700;
     margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.logo-footnote {
+    font-size: 0.6em; /* Much smaller than the main text */
+    font-weight: 400; /* Normal weight instead of bold */
+    font-style: italic;
+    color: var(--siu-gray);
+    opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo-text {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+    
+    .logo-footnote {
+        font-size: 0.5em;
+    }
 }
 
 .nav-menu {

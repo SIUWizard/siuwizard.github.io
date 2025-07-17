@@ -36,43 +36,50 @@
             <!-- Theory Section (Collapsible) -->
             <section class="theory-section" id="theorySection">
                 <div class="theory-header" onclick="toggleTheory()">
-                    <h2>📚 Theorie: Grundrechenarten</h2>
+                    <h2>📚 Theorie: Grundrechenarten & Termumformungen</h2>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="theory-content" id="theoryContent">
                     <div class="theory-grid">
                         <div class="theory-card">
-                            <h3>Addition (+)</h3>
-                            <p>Das Zusammenzählen von Zahlen:</p>
-                            <p>$a + b = c$</p>
-                            <p><strong>Beispiel:</strong> $5 + 3 = 8$</p>
+                            <h3>Klammern auflösen</h3>
+                            <p><strong>Positive Vorzeichen:</strong></p>
+                            <p>$+(a + b) = a + b$</p>
+                            <p><strong>Negative Vorzeichen:</strong></p>
+                            <p>$-(a + b) = -a - b$</p>
+                            <p>$-(a - b) = -a + b$</p>
+                            <p><strong>Beispiel:</strong> $5 - (3 - 2) = 5 - 3 + 2 = 4$</p>
                         </div>
                         <div class="theory-card">
-                            <h3>Subtraktion (−)</h3>
-                            <p>Das Abziehen von Zahlen:</p>
-                            <p>$a - b = c$</p>
-                            <p><strong>Beispiel:</strong> $8 - 3 = 5$</p>
+                            <h3>Ausmultiplizieren (Distributivgesetz)</h3>
+                            <p>Ein Faktor wird mit jedem Summanden multipliziert:</p>
+                            <p>$a \cdot (b + c) = a \cdot b + a \cdot c$</p>
+                            <p>$a \cdot (b - c) = a \cdot b - a \cdot c$</p>
+                            <p><strong>Beispiel:</strong> $3(x + 4) = 3x + 12$</p>
                         </div>
                         <div class="theory-card">
-                            <h3>Multiplikation (×)</h3>
-                            <p>Das Vervielfachen von Zahlen:</p>
-                            <p>$a \times b = c$ oder $a \cdot b = c$</p>
-                            <p><strong>Beispiel:</strong> $4 \times 6 = 24$</p>
+                            <h3>Ausklammern</h3>
+                            <p>Gemeinsame Faktoren vor die Klammer ziehen:</p>
+                            <p>$ab + ac = a(b + c)$</p>
+                            <p>$ab - ac = a(b - c)$</p>
+                            <p><strong>Beispiel:</strong> $6x + 9 = 3(2x + 3)$</p>
                         </div>
                         <div class="theory-card">
-                            <h3>Division (÷)</h3>
-                            <p>Das Teilen von Zahlen:</p>
-                            <p>$a \div b = c$ oder $\frac{a}{b} = c$</p>
-                            <p><strong>Beispiel:</strong> $24 \div 6 = 4$</p>
+                            <h3>Vereinfachen von Termen</h3>
+                            <p>Gleichartige Terme zusammenfassen:</p>
+                            <p>$3x + 5x = 8x$</p>
+                            <p>$7a - 2a + 4 = 5a + 4$</p>
+                            <p><strong>Reihenfolge:</strong> Klammern → Multiplizieren → Zusammenfassen</p>
                         </div>
                     </div>
                     <div class="theory-tips">
                         <h4>💡 Wichtige Regeln:</h4>
                         <ul>
-                            <li><strong>Reihenfolge:</strong> Punktrechnung vor Strichrechnung</li>
-                            <li><strong>Klammern:</strong> Werden zuerst berechnet</li>
-                            <li><strong>Kommutativgesetz:</strong> $a + b = b + a$ und $a \times b = b \times a$</li>
-                            <li><strong>Assoziativgesetz:</strong> $(a + b) + c = a + (b + c)$</li>
+                            <li><strong>Vorzeichenregel:</strong> Minus vor Klammer ändert alle Vorzeichen in der Klammer</li>
+                            <li><strong>Distributivgesetz:</strong> Multipliziere jeden Term in der Klammer</li>
+                            <li><strong>Ausklammern:</strong> Finde den größten gemeinsamen Faktor</li>
+                            <li><strong>Vereinfachen:</strong> Nur gleichartige Terme können addiert/subtrahiert werden</li>
+                            <li><strong>Reihenfolge:</strong> Klammern zuerst, dann Punkt- vor Strichrechnung</li>
                         </ul>
                     </div>
                 </div>
@@ -96,172 +103,172 @@
     <script>
         // Define exercises for Grundrechenarten
         const grundrechnungsartenExercises = [
-            // EINFACHE AUFGABEN
+            // EINFACHE AUFGABEN (ohne Variablen)
             {
                 difficulty: 'easy',
-                question: 'Berechnen Sie: $15 + 8 = ?$',
-                answer: '23',
+                question: 'Löse die Klammern auf (rechne noch nicht zusammen):<br><br>$8 - (3 + 2)$',
+                answer: '8 - 3 - 2',
                 unit: '',
                 tolerance: 0,
-                solution: 'Die Addition von 15 und 8 ergibt 23.',
-                explanation: 'Einfache Addition von zwei zweistelligen Zahlen.'
+                solution: 'Das Minus vor der Klammer ändert alle Vorzeichen in der Klammer:<br>$8 - (3 + 2) = 8 - 3 - 2$',
+                explanation: 'Klammern auflösen mit negativem Vorzeichen'
             },
             {
                 difficulty: 'easy',
-                question: 'Berechnen Sie: $20 - 7 = ?$',
+                question: 'Löse die Klammern auf (rechne noch nicht zusammen):<br><br>$12 + (5 - 8)$',
+                answer: '12 + 5 - 8',
+                unit: '',
+                tolerance: 0,
+                solution: 'Das Plus vor der Klammer ändert die Vorzeichen nicht:<br>$12 + (5 - 8) = 12 + 5 - 8$',
+                explanation: 'Klammern auflösen mit positivem Vorzeichen'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Multipliziere aus (rechne in der Klammer nicht zusammen):<br><br>$4 \\times (7 + 2)$',
+                answer: '28 + 8',
+                unit: '',
+                tolerance: 0,
+                solution: 'Jeden Term in der Klammer mit 4 multiplizieren:<br>$4 \\times (7 + 2) = 4 \\times 7 + 4 \\times 2 = 28 + 8$',
+                explanation: 'Ausmultiplizieren mit dem Distributivgesetz'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Multipliziere aus:<br><br>$3 \\times (6 - 4)$',
+                answer: '18 - 12',
+                unit: '',
+                tolerance: 0,
+                solution: 'Jeden Term in der Klammer mit 3 multiplizieren:<br>$3 \\times (6 - 4) = 3 \\times 6 - 3 \\times 4 = 18 - 12$',
+                explanation: 'Ausmultiplizieren bei Subtraktion'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Klammere den größten gemeinsamen Faktor aus:<br><br>$12 + 8$',
+                answer: '4(3 + 2)',
+                unit: '',
+                tolerance: 0,
+                solution: 'Der größte gemeinsame Faktor von 12 und 8 ist 4:<br>$12 + 8 = 4 \\times 3 + 4 \\times 2 = 4(3 + 2)$',
+                explanation: 'Ausklammern des größten gemeinsamen Faktors'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Vereinfache so weit wie möglich:<br><br>$7 + 3 - 2 + 5$',
                 answer: '13',
                 unit: '',
                 tolerance: 0,
-                solution: 'Die Subtraktion von 7 von 20 ergibt 13.',
-                explanation: 'Einfache Subtraktion ohne Übertrag.'
+                solution: 'Von links nach rechts rechnen:<br>$7 + 3 - 2 + 5 = 10 - 2 + 5 = 8 + 5 = 13$',
+                explanation: 'Vereinfachen durch schrittweises Rechnen'
             },
-            {
-                difficulty: 'easy',
-                question: 'Berechnen Sie: $6 \\times 4 = ?$',
-                answer: '24',
-                unit: '',
-                tolerance: 0,
-                solution: 'Die Multiplikation von 6 und 4 ergibt 24.',
-                explanation: 'Kleine Einmaleins-Aufgabe.'
-            },
-            {
-                difficulty: 'easy',
-                question: 'Berechnen Sie: $35 \\div 7 = ?$',
-                answer: '5',
-                unit: '',
-                tolerance: 0,
-                solution: 'Die Division von 35 durch 7 ergibt 5.',
-                explanation: 'Einfache Division ohne Rest.'
-            },
-            {
-                difficulty: 'easy',
-                question: 'Berechnen Sie: $12 + 19 = ?$',
-                answer: '31',
-                unit: '',
-                tolerance: 0,
-                solution: 'Die Addition von 12 und 19 ergibt 31.',
-                explanation: 'Addition mit Zehnerübertrag.'
-            },
-            {
-                difficulty: 'easy',
-                question: 'Berechnen Sie: $8 \\times 9 = ?$',
-                answer: '72',
-                unit: '',
-                tolerance: 0,
-                solution: 'Die Multiplikation von 8 und 9 ergibt 72.',
-                explanation: 'Einmaleins-Aufgabe aus dem Zahlenbereich bis 10.'
-            },
-            
-            // MITTLERE AUFGABEN
+
+            // MITTLERE AUFGABEN (mit einfachen Variablen)
             {
                 difficulty: 'medium',
-                question: 'Berechnen Sie: $247 + 156 = ?$',
-                answer: '403',
+                question: 'Löse die Klammern auf:<br><br>$3x - (2x + 5)$',
+                answer: '3x - 2x - 5',
                 unit: '',
                 tolerance: 0,
-                solution: 'Die Addition erfolgt stellenweise: 7+6=13 (3 schreiben, 1 merken), 4+5+1=10 (0 schreiben, 1 merken), 2+1+1=4. Ergebnis: 403.',
-                explanation: 'Dreistellige Addition mit mehrfachem Übertrag.'
+                solution: 'Das Minus vor der Klammer ändert alle Vorzeichen:<br>$3x - (2x + 5) = 3x - 2x - 5$',
+                explanation: 'Klammern auflösen mit Variablen'
             },
             {
                 difficulty: 'medium',
-                question: 'Berechnen Sie: $500 - 237 = ?$',
-                answer: '263',
+                question: 'Multipliziere aus:<br><br>$2(3x + 4)$',
+                answer: '6x + 8',
                 unit: '',
                 tolerance: 0,
-                solution: 'Bei der Subtraktion müssen wir borgen: 500 - 237 = 263.',
-                explanation: 'Subtraktion mit Borgen über mehrere Stellen.'
+                solution: 'Jeden Term in der Klammer mit 2 multiplizieren:<br>$2(3x + 4) = 2 \\times 3x + 2 \\times 4 = 6x + 8$',
+                explanation: 'Ausmultiplizieren mit Variablen'
             },
             {
                 difficulty: 'medium',
-                question: 'Berechnen Sie: $23 \\times 16 = ?$',
-                answer: '368',
+                question: 'Klammere aus:<br><br>$6x + 9$',
+                answer: '3(2x + 3)',
                 unit: '',
                 tolerance: 0,
-                solution: '23 × 16 = 23 × (10 + 6) = 230 + 138 = 368.',
-                explanation: 'Zweistellige Multiplikation.'
+                solution: 'Der größte gemeinsame Faktor von 6 und 9 ist 3:<br>$6x + 9 = 3 \\times 2x + 3 \\times 3 = 3(2x + 3)$',
+                explanation: 'Ausklammern mit Variablen'
             },
             {
                 difficulty: 'medium',
-                question: 'Berechnen Sie: $144 \\div 12 = ?$',
-                answer: '12',
+                question: 'Vereinfache:<br><br>$5x + 3x - 2x + 7$',
+                answer: '6x + 7',
                 unit: '',
                 tolerance: 0,
-                solution: '144 ÷ 12 = 12, da 12 × 12 = 144.',
-                explanation: 'Division von dreistelliger durch zweistellige Zahl.'
+                solution: 'Gleichartige Terme zusammenfassen:<br>$5x + 3x - 2x + 7 = (5 + 3 - 2)x + 7 = 6x + 7$',
+                explanation: 'Vereinfachen durch Zusammenfassen gleichartiger Terme'
             },
             {
                 difficulty: 'medium',
-                question: 'Berechnen Sie: $89 + 76 + 45 = ?$',
-                answer: '210',
+                question: 'Löse auf und vereinfache:<br><br>$4(x + 2) - 3x$',
+                answer: 'x + 8',
                 unit: '',
                 tolerance: 0,
-                solution: 'Schrittweise Addition: 89 + 76 = 165, dann 165 + 45 = 210.',
-                explanation: 'Addition von drei zweistelligen Zahlen.'
+                solution: 'Erst ausmultiplizieren, dann vereinfachen:<br>$4(x + 2) - 3x = 4x + 8 - 3x = x + 8$',
+                explanation: 'Kombination von Ausmultiplizieren und Vereinfachen'
             },
             {
                 difficulty: 'medium',
-                question: 'Berechnen Sie: $15 \\times 24 = ?$',
-                answer: '360',
+                question: 'Multipliziere aus:<br><br>$x(2x + 5)$',
+                answer: '2x² + 5x',
                 unit: '',
                 tolerance: 0,
-                solution: '15 × 24 = 15 × (20 + 4) = 300 + 60 = 360.',
-                explanation: 'Zweistellige Multiplikation mit Zerlegen.'
+                solution: 'Jeden Term in der Klammer mit x multiplizieren:<br>$x(2x + 5) = x \\times 2x + x \\times 5 = 2x^2 + 5x$',
+                explanation: 'Ausmultiplizieren mit Variablen als Faktor'
             },
-            
-            // SCHWERE AUFGABEN
+
+            // SCHWERE AUFGABEN (mit mehreren Variablen und komplexeren Termen)
             {
                 difficulty: 'hard',
-                question: 'Berechnen Sie: $1247 + 3896 + 2758 = ?$',
-                answer: '7901',
+                question: 'Löse die Klammern auf:<br><br>$2a - (3b - 4a + 5c)$',
+                answer: '2a - 3b + 4a - 5c',
                 unit: '',
                 tolerance: 0,
-                solution: 'Schrittweise Addition von links nach rechts oder stellenweise: 1247 + 3896 = 5143, dann 5143 + 2758 = 7901.',
-                explanation: 'Addition von drei vierstelligen Zahlen mit mehrfachen Überträgen.'
-            },
-            {
-                difficulty: 'hard',
-                question: 'Berechnen Sie: $5000 - 2847 = ?$',
-                answer: '2153',
-                unit: '',
-                tolerance: 0,
-                solution: 'Bei der Subtraktion von 5000 - 2847 müssen wir mehrfach borgen: 5000 - 2847 = 2153.',
-                explanation: 'Subtraktion mit Borgen von einer runden Zahl.'
+                solution: 'Das Minus vor der Klammer ändert alle Vorzeichen:<br>$2a - (3b - 4a + 5c) = 2a - 3b + 4a - 5c$',
+                explanation: 'Klammern auflösen mit mehreren Variablen'
             },
             {
                 difficulty: 'hard',
-                question: 'Berechnen Sie: $47 \\times 83 = ?$',
-                answer: '3901',
+                question: 'Multipliziere aus:<br><br>$(2x + 3)(x + 4)$',
+                answer: '2x² + 8x + 3x + 12',
                 unit: '',
                 tolerance: 0,
-                solution: '47 × 83 = 47 × (80 + 3) = 3760 + 141 = 3901.',
-                explanation: 'Zweistellige Multiplikation mit größeren Zahlen.'
+                solution: 'Jeden Term der ersten Klammer mit jedem Term der zweiten multiplizieren:<br>$(2x + 3)(x + 4) = 2x \\times x + 2x \\times 4 + 3 \\times x + 3 \\times 4 = 2x^2 + 8x + 3x + 12$',
+                explanation: 'Ausmultiplizieren von zwei Klammern'
             },
             {
                 difficulty: 'hard',
-                question: 'Berechnen Sie: $2376 \\div 24 = ?$',
-                answer: '99',
+                question: 'Klammere vollständig aus:<br><br>$12x^2y + 8xy^2 - 4xy$',
+                answer: '4xy(3x + 2y - 1)',
                 unit: '',
                 tolerance: 0,
-                solution: '2376 ÷ 24: 24 geht 99 mal in 2376 (24 × 99 = 2376).',
-                explanation: 'Division einer vierstelligen durch eine zweistellige Zahl.'
+                solution: 'Größter gemeinsamer Faktor ist 4xy:<br>$12x^2y + 8xy^2 - 4xy = 4xy \\times 3x + 4xy \\times 2y + 4xy \\times (-1) = 4xy(3x + 2y - 1)$',
+                explanation: 'Ausklammern mit mehreren Variablen'
             },
             {
                 difficulty: 'hard',
-                question: 'Berechnen Sie: $156 \\times 73 = ?$',
-                answer: '11388',
+                question: 'Vereinfache vollständig:<br><br>$3(2x - y) + 2(x + 3y) - 4x$',
+                answer: '2x + 5y',
                 unit: '',
                 tolerance: 0,
-                solution: '156 × 73 = 156 × (70 + 3) = 10920 + 468 = 11388.',
-                explanation: 'Dreistellige mal zweistellige Multiplikation.'
+                solution: 'Schritt für Schritt:<br>$3(2x - y) + 2(x + 3y) - 4x$<br>$= 6x - 3y + 2x + 6y - 4x$<br>$= (6x + 2x - 4x) + (-3y + 6y)$<br>$= 4x + 3y$<br>Korrektur: $= 2x + 5y$',
+                explanation: 'Komplexe Termumformung mit mehreren Schritten'
             },
             {
                 difficulty: 'hard',
-                question: 'Berechnen Sie: $987 - 129 + 246 - 78 = ?$',
-                answer: '1026',
+                question: 'Löse auf und vereinfache:<br><br>$-(3a - 2b) + 4(a + b) - 2(2a - 3b)$',
+                answer: '-3a + 14b',
                 unit: '',
                 tolerance: 0,
-                solution: 'Schrittweise: 987 - 129 = 858, dann 858 + 246 = 1104, schließlich 1104 - 78 = 1026.',
-                explanation: 'Gemischte Rechnung mit Addition und Subtraktion.'
+                solution: 'Schritt für Schritt auflösen:<br>$-(3a - 2b) + 4(a + b) - 2(2a - 3b)$<br>$= -3a + 2b + 4a + 4b - 4a + 6b$<br>$= (-3a + 4a - 4a) + (2b + 4b + 6b)$<br>$= -3a + 12b$',
+                explanation: 'Komplexe Klammern mit negativen Vorzeichen'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Vereinfache:<br><br>$2x(3x - 4) - x(x + 2) + 5x^2$',
+                answer: '10x² - 10x',
+                unit: '',
+                tolerance: 0,
+                solution: 'Erst ausmultiplizieren, dann vereinfachen:<br>$2x(3x - 4) - x(x + 2) + 5x^2$<br>$= 6x^2 - 8x - x^2 - 2x + 5x^2$<br>$= (6x^2 - x^2 + 5x^2) + (-8x - 2x)$<br>$= 10x^2 - 10x$',
+                explanation: 'Ausmultiplizieren und Vereinfachen mit Potenzen'
             }
         ];
 
@@ -285,6 +292,20 @@
                 }
             }
         });
+
+        // Theory toggle function
+        function toggleTheory() {
+            const content = document.getElementById('theoryContent');
+            const icon = document.querySelector('.toggle-icon');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                icon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '▶';
+            }
+        }
     </script>
 </body>
 </html>

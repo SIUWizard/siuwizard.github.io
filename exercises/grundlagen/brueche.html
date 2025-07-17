@@ -47,6 +47,23 @@
                             <p>$$\frac{\text{Zähler}}{\text{Nenner}} = \frac{a}{b}$$</p>
                             <p><strong>Beispiel:</strong> $\frac{3}{4}$ bedeutet "3 von 4 Teilen"</p>
                         </div>
+                        
+                        <div class="theory-card">
+                            <h3>Brüche erweitern</h3>
+                            <p>Zähler und Nenner mit der gleichen Zahl multiplizieren:</p>
+                            <p>$$\frac{a}{b} = \frac{a \times c}{b \times c}$$</p>
+                            <p><strong>Beispiel:</strong> $\frac{2}{3} = \frac{2 \times 4}{3 \times 4} = \frac{8}{12}$</p>
+                            <p>Der Wert des Bruchs bleibt gleich!</p>
+                        </div>
+                        
+                        <div class="theory-card">
+                            <h3>Brüche kürzen</h3>
+                            <p>Zähler und Nenner durch die gleiche Zahl teilen:</p>
+                            <p>$$\frac{a \times c}{b \times c} = \frac{a}{b}$$</p>
+                            <p><strong>Beispiel:</strong> $\frac{12}{18} = \frac{12 \div 6}{18 \div 6} = \frac{2}{3}$</p>
+                            <p>Immer durch den <strong>größten gemeinsamen Teiler (ggT)</strong> kürzen!</p>
+                        </div>
+                        
                         <div class="theory-card">
                             <h3>Addition/Subtraktion</h3>
                             <p>Bei gleichen Nennern:</p>
@@ -54,12 +71,15 @@
                             <p>Bei verschiedenen Nennern: Erweitern auf gemeinsamen Nenner</p>
                             <p><strong>Beispiel:</strong> $\frac{1}{2} + \frac{1}{3} = \frac{3}{6} + \frac{2}{6} = \frac{5}{6}$</p>
                         </div>
+                        
                         <div class="theory-card">
                             <h3>Multiplikation</h3>
                             <p>Zähler mal Zähler, Nenner mal Nenner:</p>
                             <p>$$\frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b \times d}$$</p>
                             <p><strong>Beispiel:</strong> $\frac{2}{3} \times \frac{4}{5} = \frac{8}{15}$</p>
+                            <p><strong>Tipp:</strong> Vor der Multiplikation kürzen spart Arbeit!</p>
                         </div>
+                        
                         <div class="theory-card">
                             <h3>Division</h3>
                             <p>Multipliziere mit dem Kehrwert:</p>
@@ -70,11 +90,11 @@
                     <div class="theory-tips">
                         <h4>💡 Wichtige Regeln:</h4>
                         <ul>
-                            <li><strong>Kürzen:</strong> Zähler und Nenner durch die gleiche Zahl teilen</li>
-                            <li><strong>Erweitern:</strong> Zähler und Nenner mit der gleichen Zahl multiplizieren</li>
-                            <li><strong>Gemeinsamer Nenner:</strong> Kleinstes gemeinsames Vielfaches (kgV)</li>
-                            <li><strong>Gemischte Zahlen:</strong> In unechte Brüche umwandeln</li>
-                            <li><strong>Kehrwert:</strong> Zähler und Nenner vertauschen</li>
+                            <li><strong>Gemeinsamer Nenner:</strong> Kleinstes gemeinsames Vielfaches (kgV) finden</li>
+                            <li><strong>Vollständig kürzen:</strong> Immer durch den größten gemeinsamen Teiler (ggT)</li>
+                            <li><strong>Kehrwert bilden:</strong> Zähler und Nenner vertauschen</li>
+                            <li><strong>Mit Variablen:</strong> Gleiche Regeln wie mit Zahlen anwenden</li>
+                            <li><strong>Kontrolle:</strong> Ergebnis immer vollständig kürzen</li>
                         </ul>
                     </div>
                 </div>
@@ -98,172 +118,226 @@
     <script>
         // Define exercises for Bruchrechnung
         const bruchrechnungExercises = [
-            // EINFACHE AUFGABEN
+            // ============ EINFACHE AUFGABEN (EASY) ============
             {
                 difficulty: 'easy',
-                question: 'Berechnen Sie: $\\frac{1}{4} + \\frac{1}{4} = ?$',
-                answer: '1/2',
+                question: 'Erweitern Sie den Bruch $\\frac{2}{3}$ auf den Nenner 12:<br><br>$\\frac{2}{3} = \\frac{?}{12}$',
+                answer: '8',
                 unit: '',
                 tolerance: 0,
-                solution: 'Bei gleichen Nennern werden die Zähler addiert: $\\frac{1}{4} + \\frac{1}{4} = \\frac{1+1}{4} = \\frac{2}{4} = \\frac{1}{2}$',
-                explanation: 'Addition von Brüchen mit gleichem Nenner.'
+                solution: 'Um auf Nenner 12 zu erweitern, multiplizieren wir mit 4:<br>$\\frac{2}{3} = \\frac{2 \\times 4}{3 \\times 4} = \\frac{8}{12}$',
+                explanation: 'Brüche erweitern durch Multiplikation von Zähler und Nenner mit derselben Zahl'
             },
             {
                 difficulty: 'easy',
-                question: 'Berechnen Sie: $\\frac{3}{5} - \\frac{1}{5} = ?$',
-                answer: '2/5',
-                unit: '',
-                tolerance: 0,
-                solution: 'Bei gleichen Nennern werden die Zähler subtrahiert: $\\frac{3}{5} - \\frac{1}{5} = \\frac{3-1}{5} = \\frac{2}{5}$',
-                explanation: 'Subtraktion von Brüchen mit gleichem Nenner.'
-            },
-            {
-                difficulty: 'easy',
-                question: 'Berechnen Sie: $\\frac{1}{2} \\times \\frac{1}{3} = ?$',
-                answer: '1/6',
-                unit: '',
-                tolerance: 0,
-                solution: 'Zähler mal Zähler, Nenner mal Nenner: $\\frac{1}{2} \\times \\frac{1}{3} = \\frac{1 \\times 1}{2 \\times 3} = \\frac{1}{6}$',
-                explanation: 'Multiplikation von Brüchen.'
-            },
-            {
-                difficulty: 'easy',
-                question: 'Berechnen Sie: $\\frac{2}{3} \\div \\frac{1}{2} = ?$',
-                answer: '4/3',
-                unit: '',
-                tolerance: 0,
-                solution: 'Division durch Multiplikation mit dem Kehrwert: $\\frac{2}{3} \\div \\frac{1}{2} = \\frac{2}{3} \\times \\frac{2}{1} = \\frac{4}{3}$',
-                explanation: 'Division von Brüchen durch Multiplikation mit dem Kehrwert.'
-            },
-            {
-                difficulty: 'easy',
-                question: 'Kürzen Sie: $\\frac{6}{9} = ?$',
+                question: 'Kürzen Sie den Bruch soweit wie möglich:<br><br>$\\frac{6}{9} = ?$',
                 answer: '2/3',
                 unit: '',
                 tolerance: 0,
-                solution: 'Beide Zahlen durch 3 teilen: $\\frac{6}{9} = \\frac{6÷3}{9÷3} = \\frac{2}{3}$',
-                explanation: 'Bruch kürzen durch den größten gemeinsamen Teiler.'
+                solution: 'ggT von 6 und 9 ist 3:<br>$\\frac{6}{9} = \\frac{6 \\div 3}{9 \\div 3} = \\frac{2}{3}$',
+                explanation: 'Brüche kürzen durch Division von Zähler und Nenner durch den ggT'
             },
             {
                 difficulty: 'easy',
-                question: 'Berechnen Sie: $\\frac{1}{3} + \\frac{2}{3} = ?$',
-                answer: '1',
+                question: 'Erweitern Sie den Bruch $\\frac{1}{4}$ auf den Nenner 20:<br><br>$\\frac{1}{4} = \\frac{?}{20}$',
+                answer: '5',
                 unit: '',
                 tolerance: 0,
-                solution: 'Bei gleichen Nennern: $\\frac{1}{3} + \\frac{2}{3} = \\frac{1+2}{3} = \\frac{3}{3} = 1$',
-                explanation: 'Addition von Brüchen mit gleichem Nenner ergibt eine ganze Zahl.'
+                solution: 'Um auf Nenner 20 zu erweitern, multiplizieren wir mit 5:<br>$\\frac{1}{4} = \\frac{1 \\times 5}{4 \\times 5} = \\frac{5}{20}$',
+                explanation: 'Erweitern durch Multiplikation mit 5'
             },
-            
-            // MITTLERE AUFGABEN
             {
-                difficulty: 'medium',
-                question: 'Berechnen Sie: $\\frac{1}{2} + \\frac{1}{3} = ?$',
-                answer: '5/6',
+                difficulty: 'easy',
+                question: 'Kürzen Sie den Bruch soweit wie möglich:<br><br>$\\frac{10}{15} = ?$',
+                answer: '2/3',
                 unit: '',
                 tolerance: 0,
-                solution: 'Gemeinsamer Nenner ist 6: $\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$',
-                explanation: 'Addition von Brüchen mit verschiedenen Nennern.'
+                solution: 'ggT von 10 und 15 ist 5:<br>$\\frac{10}{15} = \\frac{10 \\div 5}{15 \\div 5} = \\frac{2}{3}$',
+                explanation: 'Vollständiges Kürzen durch den größten gemeinsamen Teiler'
             },
             {
-                difficulty: 'medium',
-                question: 'Berechnen Sie: $\\frac{3}{4} - \\frac{1}{6} = ?$',
-                answer: '7/12',
+                difficulty: 'easy',
+                question: 'Addieren Sie die Brüche (gleicher Nenner):<br><br>$\\frac{2}{7} + \\frac{3}{7} = ?$',
+                answer: '5/7',
                 unit: '',
                 tolerance: 0,
-                solution: 'Gemeinsamer Nenner ist 12: $\\frac{3}{4} - \\frac{1}{6} = \\frac{9}{12} - \\frac{2}{12} = \\frac{7}{12}$',
-                explanation: 'Subtraktion von Brüchen mit verschiedenen Nennern.'
+                solution: 'Bei gleichem Nenner addieren wir die Zähler:<br>$\\frac{2}{7} + \\frac{3}{7} = \\frac{2+3}{7} = \\frac{5}{7}$',
+                explanation: 'Addition von Brüchen mit gleichem Nenner'
             },
             {
-                difficulty: 'medium',
-                question: 'Berechnen Sie: $\\frac{2}{5} \\times \\frac{3}{4} = ?$',
-                answer: '3/10',
-                unit: '',
-                tolerance: 0,
-                solution: 'Zähler mal Zähler, Nenner mal Nenner: $\\frac{2}{5} \\times \\frac{3}{4} = \\frac{6}{20} = \\frac{3}{10}$',
-                explanation: 'Multiplikation von Brüchen und anschließendes Kürzen.'
-            },
-            {
-                difficulty: 'medium',
-                question: 'Berechnen Sie: $\\frac{3}{8} \\div \\frac{2}{3} = ?$',
-                answer: '9/16',
-                unit: '',
-                tolerance: 0,
-                solution: 'Division durch Multiplikation mit dem Kehrwert: $\\frac{3}{8} \\div \\frac{2}{3} = \\frac{3}{8} \\times \\frac{3}{2} = \\frac{9}{16}$',
-                explanation: 'Division von Brüchen.'
-            },
-            {
-                difficulty: 'medium',
-                question: 'Berechnen Sie: $\\frac{5}{6} - \\frac{1}{4} = ?$',
-                answer: '7/12',
-                unit: '',
-                tolerance: 0,
-                solution: 'Gemeinsamer Nenner ist 12: $\\frac{5}{6} - \\frac{1}{4} = \\frac{10}{12} - \\frac{3}{12} = \\frac{7}{12}$',
-                explanation: 'Subtraktion mit verschiedenen Nennern.'
-            },
-            {
-                difficulty: 'medium',
-                question: 'Berechnen Sie: $\\frac{2}{3} + \\frac{1}{4} = ?$',
-                answer: '11/12',
-                unit: '',
-                tolerance: 0,
-                solution: 'Gemeinsamer Nenner ist 12: $\\frac{2}{3} + \\frac{1}{4} = \\frac{8}{12} + \\frac{3}{12} = \\frac{11}{12}$',
-                explanation: 'Addition mit verschiedenen Nennern.'
-            },
-            
-            // SCHWERE AUFGABEN
-            {
-                difficulty: 'hard',
-                question: 'Berechnen Sie: $\\frac{2}{3} + \\frac{3}{8} - \\frac{1}{6} = ?$',
-                answer: '19/24',
-                unit: '',
-                tolerance: 0,
-                solution: 'Gemeinsamer Nenner ist 24: $\\frac{2}{3} + \\frac{3}{8} - \\frac{1}{6} = \\frac{16}{24} + \\frac{9}{24} - \\frac{4}{24} = \\frac{21}{24} = \\frac{7}{8}$',
-                explanation: 'Gemischte Rechnung mit drei Brüchen.'
-            },
-            {
-                difficulty: 'hard',
-                question: 'Berechnen Sie: $\\frac{5}{6} \\times \\frac{4}{15} = ?$',
-                answer: '2/9',
-                unit: '',
-                tolerance: 0,
-                solution: 'Vorher kürzen oder nachher: $\\frac{5}{6} \\times \\frac{4}{15} = \\frac{20}{90} = \\frac{2}{9}$',
-                explanation: 'Multiplikation mit anschließendem Kürzen.'
-            },
-            {
-                difficulty: 'hard',
-                question: 'Berechnen Sie: $\\frac{7}{12} \\div \\frac{14}{9} = ?$',
+                difficulty: 'easy',
+                question: 'Multiplizieren Sie die Brüche:<br><br>$\\frac{1}{2} \\times \\frac{3}{4} = ?$',
                 answer: '3/8',
                 unit: '',
                 tolerance: 0,
-                solution: 'Division: $\\frac{7}{12} \\div \\frac{14}{9} = \\frac{7}{12} \\times \\frac{9}{14} = \\frac{63}{168} = \\frac{3}{8}$',
-                explanation: 'Division von Brüchen mit Kürzen.'
+                solution: 'Zähler mal Zähler, Nenner mal Nenner:<br>$\\frac{1}{2} \\times \\frac{3}{4} = \\frac{1 \\times 3}{2 \\times 4} = \\frac{3}{8}$',
+                explanation: 'Multiplikation von Brüchen'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Dividieren Sie die Brüche:<br><br>$\\frac{1}{2} \\div \\frac{1}{4} = ?$',
+                answer: '2',
+                unit: '',
+                tolerance: 0,
+                solution: 'Division durch Multiplikation mit dem Kehrwert:<br>$\\frac{1}{2} \\div \\frac{1}{4} = \\frac{1}{2} \\times \\frac{4}{1} = \\frac{4}{2} = 2$',
+                explanation: 'Division von Brüchen durch Multiplikation mit dem Kehrwert'
+            },
+            {
+                difficulty: 'easy',
+                question: 'Kürzen Sie den Bruch soweit wie möglich:<br><br>$\\frac{8}{12} = ?$',
+                answer: '2/3',
+                unit: '',
+                tolerance: 0,
+                solution: 'ggT von 8 und 12 ist 4:<br>$\\frac{8}{12} = \\frac{8 \\div 4}{12 \\div 4} = \\frac{2}{3}$',
+                explanation: 'Vollständiges Kürzen durch den ggT'
+            },
+
+            // ============ MITTLERE AUFGABEN (MEDIUM) ============
+            {
+                difficulty: 'medium',
+                question: 'Addieren Sie die Brüche (verschiedene Nenner):<br><br>$\\frac{1}{3} + \\frac{1}{4} = ?$',
+                answer: '7/12',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist kgV(3,4) = 12:<br>$\\frac{1}{3} + \\frac{1}{4} = \\frac{4}{12} + \\frac{3}{12} = \\frac{7}{12}$',
+                explanation: 'Addition durch Erweitern auf gemeinsamen Nenner'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Erweitern Sie den Bruch $\\frac{3x}{4}$ auf den Nenner $12y$:<br><br>$\\frac{3x}{4} = \\frac{?}{12y}$',
+                answer: '9xy',
+                unit: '',
+                tolerance: 0,
+                solution: 'Um auf Nenner $12y$ zu erweitern, multiplizieren wir mit $3y$:<br>$\\frac{3x}{4} = \\frac{3x \\times 3y}{4 \\times 3y} = \\frac{9xy}{12y}$',
+                explanation: 'Erweitern von Brüchen mit Variablen'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Subtrahieren Sie die Brüche:<br><br>$\\frac{5}{6} - \\frac{1}{4} = ?$',
+                answer: '7/12',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist kgV(6,4) = 12:<br>$\\frac{5}{6} - \\frac{1}{4} = \\frac{10}{12} - \\frac{3}{12} = \\frac{7}{12}$',
+                explanation: 'Subtraktion durch Erweitern auf gemeinsamen Nenner'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Kürzen Sie den Bruch soweit wie möglich:<br><br>$\\frac{6a}{9a} = ?$',
+                answer: '2/3',
+                unit: '',
+                tolerance: 0,
+                solution: 'ggT von $6a$ und $9a$ ist $3a$:<br>$\\frac{6a}{9a} = \\frac{6a \\div 3a}{9a \\div 3a} = \\frac{2}{3}$',
+                explanation: 'Kürzen von Brüchen mit Variablen'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Multiplizieren Sie und kürzen Sie das Ergebnis:<br><br>$\\frac{2}{3} \\times \\frac{9}{4} = ?$',
+                answer: '3/2',
+                unit: '',
+                tolerance: 0,
+                solution: 'Multiplizieren und dann kürzen:<br>$\\frac{2}{3} \\times \\frac{9}{4} = \\frac{18}{12} = \\frac{18 \\div 6}{12 \\div 6} = \\frac{3}{2}$',
+                explanation: 'Multiplikation mit anschließendem Kürzen'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Dividieren Sie die Brüche:<br><br>$\\frac{3}{5} \\div \\frac{2}{7} = ?$',
+                answer: '21/10',
+                unit: '',
+                tolerance: 0,
+                solution: 'Division durch Multiplikation mit dem Kehrwert:<br>$\\frac{3}{5} \\div \\frac{2}{7} = \\frac{3}{5} \\times \\frac{7}{2} = \\frac{21}{10}$',
+                explanation: 'Division von Brüchen'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Berechnen Sie:<br><br>$\\frac{2}{5} + \\frac{3}{10} = ?$',
+                answer: '7/10',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist 10:<br>$\\frac{2}{5} + \\frac{3}{10} = \\frac{4}{10} + \\frac{3}{10} = \\frac{7}{10}$',
+                explanation: 'Addition durch Erweitern des ersten Bruchs'
+            },
+            {
+                difficulty: 'medium',
+                question: 'Kürzen Sie den Bruch soweit wie möglich:<br><br>$\\frac{15xy}{20x} = ?$',
+                answer: '3y/4',
+                unit: '',
+                tolerance: 0,
+                solution: 'ggT von $15xy$ und $20x$ ist $5x$:<br>$\\frac{15xy}{20x} = \\frac{15xy \\div 5x}{20x \\div 5x} = \\frac{3y}{4}$',
+                explanation: 'Kürzen von Brüchen mit mehreren Variablen'
+            },
+
+            // ============ SCHWERE AUFGABEN (HARD) ============
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie und kürzen Sie das Ergebnis soweit wie möglich:<br><br>$\\frac{2a}{3b} + \\frac{a}{4b} = ?$',
+                answer: '11a/12b',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist $12b$:<br>$\\frac{2a}{3b} + \\frac{a}{4b} = \\frac{8a}{12b} + \\frac{3a}{12b} = \\frac{11a}{12b}$',
+                explanation: 'Addition von Brüchen mit Variablen'
             },
             {
                 difficulty: 'hard',
-                question: 'Berechnen Sie: $\\frac{3}{4} \\times \\frac{8}{9} \\div \\frac{2}{3} = ?$',
-                answer: '1',
+                question: 'Multiplizieren Sie und kürzen Sie soweit wie möglich:<br><br>$\\frac{4x^2}{6y} \\times \\frac{3y^2}{8x} = ?$',
+                answer: 'xy/4',
                 unit: '',
                 tolerance: 0,
-                solution: 'Schrittweise: $\\frac{3}{4} \\times \\frac{8}{9} = \\frac{24}{36} = \\frac{2}{3}$, dann $\\frac{2}{3} \\div \\frac{2}{3} = 1$',
-                explanation: 'Kombination von Multiplikation und Division.'
+                solution: 'Multiplizieren und kürzen:<br>$\\frac{4x^2}{6y} \\times \\frac{3y^2}{8x} = \\frac{12x^2y^2}{48xy} = \\frac{12x^2y^2 \\div 12xy}{48xy \\div 12xy} = \\frac{xy}{4}$',
+                explanation: 'Multiplikation von Brüchen mit Potenzen und Variablen'
             },
             {
                 difficulty: 'hard',
-                question: 'Berechnen Sie: $\\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6} = ?$',
-                answer: '1',
+                question: 'Berechnen Sie:<br><br>$\\frac{3}{4} - \\frac{1}{6} + \\frac{1}{12} = ?$',
+                answer: '3/4',
                 unit: '',
                 tolerance: 0,
-                solution: 'Gemeinsamer Nenner ist 6: $\\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6} = \\frac{3}{6} + \\frac{2}{6} + \\frac{1}{6} = \\frac{6}{6} = 1$',
-                explanation: 'Addition von drei Brüchen.'
+                solution: 'Gemeinsamer Nenner ist kgV(4,6,12) = 12:<br>$\\frac{3}{4} - \\frac{1}{6} + \\frac{1}{12} = \\frac{9}{12} - \\frac{2}{12} + \\frac{1}{12} = \\frac{8}{12} = \\frac{2}{3}$',
+                explanation: 'Gemischte Rechnung mit drei Brüchen'
             },
             {
                 difficulty: 'hard',
-                question: 'Berechnen Sie: $\\frac{5}{8} - \\frac{1}{6} + \\frac{1}{4} = ?$',
-                answer: '17/24',
+                question: 'Dividieren Sie und kürzen Sie soweit wie möglich:<br><br>$\\frac{6a^2b}{5c} \\div \\frac{9ab^2}{10c^2} = ?$',
+                answer: '4ac/3b',
                 unit: '',
                 tolerance: 0,
-                solution: 'Gemeinsamer Nenner ist 24: $\\frac{5}{8} - \\frac{1}{6} + \\frac{1}{4} = \\frac{15}{24} - \\frac{4}{24} + \\frac{6}{24} = \\frac{17}{24}$',
-                explanation: 'Gemischte Rechnung mit Addition und Subtraktion.'
+                solution: 'Division durch Multiplikation mit dem Kehrwert:<br>$\\frac{6a^2b}{5c} \\div \\frac{9ab^2}{10c^2} = \\frac{6a^2b}{5c} \\times \\frac{10c^2}{9ab^2} = \\frac{60a^2bc^2}{45cab^2} = \\frac{4ac}{3b}$',
+                explanation: 'Division von komplexen Brüchen mit Variablen'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie und kürzen Sie soweit wie möglich:<br><br>$\\frac{x}{2y} - \\frac{x}{3y} = ?$',
+                answer: 'x/6y',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist $6y$:<br>$\\frac{x}{2y} - \\frac{x}{3y} = \\frac{3x}{6y} - \\frac{2x}{6y} = \\frac{x}{6y}$',
+                explanation: 'Subtraktion von Brüchen mit gleichen Variablen im Zähler'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Vereinfachen Sie den komplexen Bruch:<br><br>$\\frac{\\frac{2a}{3b}}{\\frac{4a}{9b^2}} = ?$',
+                answer: '3b/2',
+                unit: '',
+                tolerance: 0,
+                solution: 'Komplexer Bruch als Division:<br>$\\frac{\\frac{2a}{3b}}{\\frac{4a}{9b^2}} = \\frac{2a}{3b} \\div \\frac{4a}{9b^2} = \\frac{2a}{3b} \\times \\frac{9b^2}{4a} = \\frac{18ab^2}{12ab} = \\frac{3b}{2}$',
+                explanation: 'Vereinfachung eines komplexen Bruchs'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Berechnen Sie:<br><br>$\\frac{5x}{6} + \\frac{x}{4} - \\frac{x}{3} = ?$',
+                answer: '7x/12',
+                unit: '',
+                tolerance: 0,
+                solution: 'Gemeinsamer Nenner ist kgV(6,4,3) = 12:<br>$\\frac{5x}{6} + \\frac{x}{4} - \\frac{x}{3} = \\frac{10x}{12} + \\frac{3x}{12} - \\frac{4x}{12} = \\frac{9x}{12} = \\frac{3x}{4}$',
+                explanation: 'Gemischte Rechnung mit Variablen und drei Termen'
+            },
+            {
+                difficulty: 'hard',
+                question: 'Kürzen Sie den Bruch soweit wie möglich:<br><br>$\\frac{12x^2y^3}{18x^3y^2} = ?$',
+                answer: '2y/3x',
+                unit: '',
+                tolerance: 0,
+                solution: 'ggT von Zähler und Nenner ist $6x^2y^2$:<br>$\\frac{12x^2y^3}{18x^3y^2} = \\frac{12x^2y^3 \\div 6x^2y^2}{18x^3y^2 \\div 6x^2y^2} = \\frac{2y}{3x}$',
+                explanation: 'Kürzen von Brüchen mit Potenzen'
             }
         ];
 
